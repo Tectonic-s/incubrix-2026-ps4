@@ -1,0 +1,38 @@
+{
+  "certification_id": "6076431f-6ef6-47f1-b809-1d3ef2b5bdf3",
+  "destination_name": "Batch Ghost Destination",
+  "destination_url": "https://ghost.batch-test.org",
+  "connector_key": "ghost",
+  "started_at": "2026-10-24T12:38:44.849706+00:00",
+  "steps": {
+    "validate": {
+      "ok": true,
+      "violations": []
+    },
+    "publish": {
+      "platform_post_id": "ghost_90018",
+      "live_url": "https://ghost.example.com/ghost_90018",
+      "status": "published"
+    },
+    "get_status": {
+      "status": "active",
+      "live_url": "https://ghost.batch-test.org/p/ghost_90018"
+    },
+    "metrics": {
+      "views": 120,
+      "likes": 12,
+      "comments": 0,
+      "shares": 0,
+      "saves": 0,
+      "watch_time_s": 0,
+      "clicks": 18
+    },
+    "delete": {
+      "deleted": true
+    }
+  },
+  "status": "passed",
+  "finished_at": "2026-10-24T12:38:44.854784+00:00",
+  "duration_seconds": 0.005078,
+  "level_assigned": "L4"
+}

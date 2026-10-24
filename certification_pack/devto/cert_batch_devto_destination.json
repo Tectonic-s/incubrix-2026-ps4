@@ -1,0 +1,38 @@
+{
+  "certification_id": "441dc2c1-1f01-47d9-b397-9e7f3ca05da3",
+  "destination_name": "Batch Devto Destination",
+  "destination_url": "https://devto.batch-test.org",
+  "connector_key": "devto",
+  "started_at": "2026-10-24T12:38:44.843515+00:00",
+  "steps": {
+    "validate": {
+      "ok": true,
+      "violations": []
+    },
+    "publish": {
+      "platform_post_id": "devto_84004",
+      "live_url": "https://dev.to/article/devto_84004",
+      "status": "published"
+    },
+    "get_status": {
+      "status": "active",
+      "live_url": "https://dev.to/article/devto_84004"
+    },
+    "metrics": {
+      "views": 200,
+      "likes": 20,
+      "comments": 3,
+      "shares": 0,
+      "saves": 0,
+      "watch_time_s": 0,
+      "clicks": 0
+    },
+    "delete": {
+      "deleted": true
+    }
+  },
+  "status": "passed",
+  "finished_at": "2026-10-24T12:38:44.848574+00:00",
+  "duration_seconds": 0.005059,
+  "level_assigned": "L4"
+}

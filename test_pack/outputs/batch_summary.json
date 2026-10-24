@@ -1,0 +1,193 @@
+{
+  "total_inputs": 7,
+  "succeeded": 5,
+  "failed": 2,
+  "total_time_seconds": 3.641,
+  "api_url": "http://localhost:8000",
+  "results": [
+    {
+      "file": "input_01_discourse.json",
+      "job_id": "job_55655f9d8e12",
+      "status": "succeeded",
+      "progress": 100,
+      "results": {
+        "post_id": "65924c97-6e5b-4b7c-b17e-131d493e5052",
+        "platform_post_id": "disc_78234",
+        "live_url": "https://discourse.example.com/t/disc_78234",
+        "status": "published",
+        "manifest_url": "/api/v1/storage/49798c26_manifest_job_55655f9d8e12.json",
+        "destination_name": "Batch Discourse Destination",
+        "tailored_rendition": {
+          "title": "What are your thoughts on: Optimizing High-Throughput Video Processing Pipelines with FFmpeg and Go?",
+          "body": "Here is an exploration of how we reduced latency by 45% when processing concurrent user videos using hardware-accelerated transcoding filters.\n\n---\n**Discussion Question:** Have you implemented a similar approach in your workflow? What challenges or trade-offs did you encounter?",
+          "media_urls": [],
+          "tags": [
+            "video",
+            "performance",
+            "go"
+          ],
+          "canonical_url": null,
+          "is_promotional": false,
+          "has_ai_disclosure": true,
+          "extra_meta": {}
+        }
+      },
+      "error": null,
+      "elapsed_seconds": 0.512
+    },
+    {
+      "file": "input_02_devto.json",
+      "job_id": "job_b92b849090e7",
+      "status": "succeeded",
+      "progress": 100,
+      "results": {
+        "post_id": "a914f21d-417a-40be-bd1b-2e48c1300e72",
+        "platform_post_id": "devto_62149",
+        "live_url": "https://dev.to/article/devto_62149",
+        "status": "published",
+        "manifest_url": "/api/v1/storage/95b3f6bb_manifest_job_b92b849090e7.json",
+        "destination_name": "Batch Devto Destination",
+        "tailored_rendition": {
+          "title": "Building Resilient Microservices with Distributed Idempotency Keys",
+          "body": "Learn how safe retries, correlation IDs, and deduplication layers eliminate duplicate side-effects across distributed webhook consumers.",
+          "media_urls": [],
+          "tags": [
+            "saas",
+            "architecture",
+            "webdev"
+          ],
+          "canonical_url": "https://incubrix.com/engineering/idempotency",
+          "is_promotional": false,
+          "has_ai_disclosure": true,
+          "extra_meta": {}
+        }
+      },
+      "error": null,
+      "elapsed_seconds": 0.514
+    },
+    {
+      "file": "input_03_ghost.json",
+      "job_id": "job_b16ec9a61bd6",
+      "status": "succeeded",
+      "progress": 100,
+      "results": {
+        "post_id": "3b935d7a-a265-4d85-a8b8-52b5aa718505",
+        "platform_post_id": "ghost_63701",
+        "live_url": "https://ghost.example.com/ghost_63701",
+        "status": "published",
+        "manifest_url": "/api/v1/storage/7e9797b8_manifest_job_b16ec9a61bd6.json",
+        "destination_name": "Batch Ghost Destination",
+        "tailored_rendition": {
+          "title": "The Next Decade of Creator Economy Distribution Channels",
+          "body": "A deep-dive analysis on why creator distribution is pivoting from monolithic social platforms to long-tail niche communities and video syndication networks.",
+          "media_urls": [],
+          "tags": [
+            "creators",
+            "distribution",
+            "saas"
+          ],
+          "canonical_url": "https://incubrix.com/blog/original",
+          "is_promotional": false,
+          "has_ai_disclosure": true,
+          "extra_meta": {}
+        }
+      },
+      "error": null,
+      "elapsed_seconds": 0.513
+    },
+    {
+      "file": "input_04_webhook.json",
+      "job_id": "job_4e4e3776544a",
+      "status": "succeeded",
+      "progress": 100,
+      "results": {
+        "post_id": "ed5d3b73-2114-4748-a91d-f3fd8258fc27",
+        "platform_post_id": "hook_26795",
+        "live_url": "https://partner.example.com/events/hook_26795",
+        "status": "published",
+        "manifest_url": "/api/v1/storage/c48ee0eb_manifest_job_4e4e3776544a.json",
+        "destination_name": "Batch Webhook Destination",
+        "tailored_rendition": {
+          "title": "IncuBrix Product Release: Multi-Platform Automation Engine",
+          "body": "Official partner syndication release notes covering our v2 API connector interfaces and background job queuing subsystem.",
+          "media_urls": [],
+          "tags": [
+            "startups",
+            "release",
+            "saas"
+          ],
+          "canonical_url": null,
+          "is_promotional": false,
+          "has_ai_disclosure": true,
+          "extra_meta": {}
+        }
+      },
+      "error": null,
+      "elapsed_seconds": 0.512
+    },
+    {
+      "file": "input_05_assisted.json",
+      "job_id": "job_faca1d644f7d",
+      "status": "succeeded",
+      "progress": 100,
+      "results": {
+        "post_id": "82e39e9d-18d1-4caf-9a7a-f03e99cc900a",
+        "platform_post_id": "assist_61569",
+        "live_url": "https://assisted.batch-test.org",
+        "status": "ready_for_manual_post",
+        "manifest_url": "/api/v1/storage/be9eba75_manifest_job_faca1d644f7d.json",
+        "destination_name": "Batch Assisted Destination",
+        "tailored_rendition": {
+          "title": "Lessons Bootstrapping an AI Video Editing Startup to First 1,000 Users",
+          "body": "Detailed case study sharing our customer acquisition funnel, conversion metrics, community feedback loops, and lessons learned.",
+          "media_urls": [],
+          "tags": [
+            "founders",
+            "saas",
+            "bootstrap"
+          ],
+          "canonical_url": null,
+          "is_promotional": false,
+          "has_ai_disclosure": false,
+          "extra_meta": {}
+        }
+      },
+      "error": null,
+      "elapsed_seconds": 0.515
+    },
+    {
+      "file": "input_06_failure_frequency_cap.json",
+      "job_id": "job_14d8f5df7788",
+      "status": "failed",
+      "progress": 50,
+      "results": null,
+      "error": {
+        "code": "DEST_RULE_FREQUENCY_CAP",
+        "message": "Frequency cap reached (1/7d). Next eligible post at 2026-10-31T12:28:53.686537+00:00.",
+        "retryable": true,
+        "details": {
+          "reschedule_at": "2026-10-31T12:28:53.686537+00:00"
+        }
+      },
+      "elapsed_seconds": 0.515
+    },
+    {
+      "file": "input_07_failure_promo_ban.json",
+      "job_id": "job_6a058d9cc7a3",
+      "status": "failed",
+      "progress": 50,
+      "results": null,
+      "error": {
+        "code": "DEST_SPEC_VIOLATION",
+        "message": "Posting rule violations: Destination strictly bans self-promotion and promotional content.",
+        "retryable": false,
+        "details": {
+          "violations": [
+            "Destination strictly bans self-promotion and promotional content."
+          ]
+        }
+      },
+      "elapsed_seconds": 0.516
+    }
+  ]
+}

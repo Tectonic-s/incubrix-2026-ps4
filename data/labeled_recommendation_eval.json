@@ -1,0 +1,94 @@
+[
+  {
+    "content": {
+      "title": "Scaling AI Video Transcoding with WebCodecs and Cloud GPU Clusters",
+      "body": "In-depth guide on deploying ultra-low-latency video processing nodes using WebCodecs and serverless GPU runners.",
+      "tags": [
+        "video",
+        "ai",
+        "gpu",
+        "streaming",
+        "transcoding"
+      ],
+      "is_promotional": false,
+      "has_ai_disclosure": true
+    },
+    "ground_truth_relevant_ids": [
+      "Dev.to Video Tech",
+      "VideoCraft Syndication Hub",
+      "Video Tech Today",
+      "Samsung TV Plus Video Channel Feed",
+      "Lemmy World Video Production",
+      "Video Creator Collective Slack",
+      "Roku Direct Publisher Feed",
+      "Amazon Fire TV MRSS Feed",
+      "Obs Project Forum Ghost Publication",
+      "Descript Editors Assisted Forum",
+      "OpenAI Developer Community",
+      "Modal Labs Discourse Hub",
+      "Replicate Community Discourse Hub"
+    ]
+  },
+  {
+    "content": {
+      "title": "How We Bootstrapped a B2B SaaS to $50k MRR in 9 Months",
+      "body": "Lessons learned in pricing, outbound positioning, customer retention, and organic developer distribution without venture capital.",
+      "tags": [
+        "saas",
+        "founders",
+        "marketing",
+        "bootstrapped",
+        "growth"
+      ],
+      "is_promotional": false,
+      "has_ai_disclosure": false
+    },
+    "ground_truth_relevant_ids": [
+      "SaaS Weekly by Hiten Shah",
+      "Reddit r/SaaS",
+      "SaaS Growth Leaders Slack",
+      "Dev.to Founders & Startups",
+      "SaaS Insider Partner Feed",
+      "SaaS Builder Chronicles",
+      "Tech Founders Network Slack",
+      "Saas Academy Alumni Assisted Forum",
+      "Bengaluru Saas Builders Slack Workspace",
+      "Indie Hackers Discourse Hub",
+      "Lenny's Newsletter",
+      "ProductHunt Webhook Publisher",
+      "Reddit r/Entrepreneur",
+      "Bubble Forum"
+    ]
+  },
+  {
+    "content": {
+      "title": "Building Autonomous Multi-Agent Workflows with LangChain and Local LLMs",
+      "body": "A hands-on implementation walkthrough for orchestrating autonomous coding agents and tool verification harnesses locally.",
+      "tags": [
+        "ai",
+        "langchain",
+        "llm",
+        "agents",
+        "python"
+      ],
+      "is_promotional": false,
+      "has_ai_disclosure": true
+    },
+    "ground_truth_relevant_ids": [
+      "LangChain Forum",
+      "Langchain Community Discourse Hub",
+      "Dev.to Python Hub",
+      "AI Explorers Publication",
+      "AI Tinkerers Global Slack",
+      "OpenAI Developer Community",
+      "Fast.ai Forum",
+      "Dev.to AI Hub",
+      "Stackoverflow Ai Collective Hashnode Journal",
+      "Towards Data Science Assisted Forum",
+      "Marktechpost Ai Dev.to Channel",
+      "Hugging Face Community",
+      "Reddit r/MachineLearning",
+      "Lemmy World Artificial Intelligence"
+    ]
+  }
+]

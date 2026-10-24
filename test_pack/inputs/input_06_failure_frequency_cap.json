@@ -1,0 +1,13 @@
+{
+  "rendition": {
+    "title": "Violating Frequency Cap: Rapid Succession Post",
+    "body": "This post intentionally violates the destination 1/7d cap to demonstrate automatic rule-based blocking.",
+    "tags": [
+      "test",
+      "rules"
+    ],
+    "is_promotional": false,
+    "has_ai_disclosure": true
+  },
+  "destination_id": "OpenAI Developer Community"
+}

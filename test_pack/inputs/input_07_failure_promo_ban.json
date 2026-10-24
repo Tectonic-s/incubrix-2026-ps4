@@ -1,0 +1,12 @@
+{
+  "rendition": {
+    "title": "Buy our SaaS product today with 50% off discount coupon!",
+    "body": "Limited offer, special deal, sign up today and buy now at our store!",
+    "tags": [
+      "promo"
+    ],
+    "is_promotional": true,
+    "has_ai_disclosure": true
+  },
+  "destination_id": "Batch No-Promo Community"
+}

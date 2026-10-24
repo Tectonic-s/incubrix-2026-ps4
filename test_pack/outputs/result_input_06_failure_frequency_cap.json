@@ -1,0 +1,16 @@
+{
+  "file": "input_06_failure_frequency_cap.json",
+  "job_id": "job_14d8f5df7788",
+  "status": "failed",
+  "progress": 50,
+  "results": null,
+  "error": {
+    "code": "DEST_RULE_FREQUENCY_CAP",
+    "message": "Frequency cap reached (1/7d). Next eligible post at 2026-10-31T12:28:53.686537+00:00.",
+    "retryable": true,
+    "details": {
+      "reschedule_at": "2026-10-31T12:28:53.686537+00:00"
+    }
+  },
+  "elapsed_seconds": 0.515
+}

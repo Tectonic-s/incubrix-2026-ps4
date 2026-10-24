@@ -1,0 +1,31 @@
+{
+  "certification_id": "4181cc44-a448-4491-8f98-390dbcb20f21",
+  "destination_name": "Assisted Forum Test",
+  "destination_url": "https://reddit.com/r/SaaS",
+  "connector_key": "assisted",
+  "started_at": "2026-10-24T12:38:44.085580+00:00",
+  "steps": {
+    "validate": {
+      "ok": true,
+      "violations": []
+    },
+    "publish": {
+      "platform_post_id": "assist_3848",
+      "live_url": "https://reddit.com/r/SaaS/submit",
+      "status": "ready_for_manual_post",
+      "assist_pack": {
+        "files": [],
+        "caption": "[IncuBrix Cert Test] Assisted Forum Test Verification\n\nAutomated certification test post by IncuBrix distribution harness. Will be cleaned up immediately.\n\n#incubrix #test",
+        "deep_link": "https://reddit.com/r/SaaS/submit",
+        "checklist": [
+          "Review community guidelines at https://reddit.com/r/SaaS",
+          "Ensure frequency cap (1/7d) has not been breached"
+        ]
+      }
+    }
+  },
+  "status": "passed",
+  "finished_at": "2026-10-24T12:38:44.085631+00:00",
+  "duration_seconds": 5.1e-05,
+  "level_assigned": "L1"
+}

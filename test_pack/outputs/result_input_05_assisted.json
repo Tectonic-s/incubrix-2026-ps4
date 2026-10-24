@@ -1,0 +1,30 @@
+{
+  "file": "input_05_assisted.json",
+  "job_id": "job_faca1d644f7d",
+  "status": "succeeded",
+  "progress": 100,
+  "results": {
+    "post_id": "82e39e9d-18d1-4caf-9a7a-f03e99cc900a",
+    "platform_post_id": "assist_61569",
+    "live_url": "https://assisted.batch-test.org",
+    "status": "ready_for_manual_post",
+    "manifest_url": "/api/v1/storage/be9eba75_manifest_job_faca1d644f7d.json",
+    "destination_name": "Batch Assisted Destination",
+    "tailored_rendition": {
+      "title": "Lessons Bootstrapping an AI Video Editing Startup to First 1,000 Users",
+      "body": "Detailed case study sharing our customer acquisition funnel, conversion metrics, community feedback loops, and lessons learned.",
+      "media_urls": [],
+      "tags": [
+        "founders",
+        "saas",
+        "bootstrap"
+      ],
+      "canonical_url": null,
+      "is_promotional": false,
+      "has_ai_disclosure": false,
+      "extra_meta": {}
+    }
+  },
+  "error": null,
+  "elapsed_seconds": 0.515
+}

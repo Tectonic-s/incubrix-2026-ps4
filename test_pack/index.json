@@ -1,0 +1,168 @@
+{
+  "test_pack_version": "1.0.0",
+  "assessment": "PS4 — Distribution: Long-Tail Destination Network",
+  "service": "incubrix-ps4-distribution",
+  "generated_at": "2026-10-24T18:06:40Z",
+  "summary": {
+    "total_tests_run": 36,
+    "tests_passed": 36,
+    "tests_failed": 0,
+    "batch_inputs": 7,
+    "batch_succeeded": 5,
+    "batch_failures_caught_by_rules": 2
+  },
+  "claims_index": [
+    {
+      "claim_id": "MH-1",
+      "requirement": "Exact connector contract (Appendix A)",
+      "verification_method": "Contract validation tests covering all 9 connectors",
+      "test_file": "tests/test_connectors_contract.py::test_core_connectors_contract_methods",
+      "evidence_file": "src/connectors/base.py",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "MH-2",
+      "requirement": "Six Core connectors certified",
+      "verification_method": "Full certification pipeline (publish, confirm live, get status, metrics, delete)",
+      "test_file": "tests/test_certification_harness.py::test_certify_discourse_destination",
+      "evidence_file": "certification_pack/discourse/cert_discourse_certification_instance.json",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "MH-3",
+      "requirement": "Configuration, not code (single catalogue row adds new instance)",
+      "verification_method": "Registering instance via POST /api/v1/destinations",
+      "test_file": "tests/test_e2e_full_flow.py::test_complete_e2e_distribution_lifecycle",
+      "evidence_file": "data/real_catalogue_150.csv",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "MH-4",
+      "requirement": "Rules checked before every post (frequency cap, promo, links, AI disclosure)",
+      "verification_method": "Policy checks blocking second post inside frequency cap & promo violations",
+      "test_file": "tests/test_rules_engine.py::test_frequency_cap_blocking_second_post",
+      "evidence_file": "test_pack/outputs/result_input_06_failure_frequency_cap.json ; test_pack/outputs/result_input_07_failure_promo_ban.json",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "MH-5",
+      "requirement": "Never spam, never cheat (test posts cleaned up within 10 min, backoff on 429)",
+      "verification_method": "Automated immediate cleanup confirmation in certification harness",
+      "test_file": "tests/test_certification_harness.py::test_certify_discourse_destination",
+      "evidence_file": "certification_pack/discourse/cert_discourse_certification_instance.json",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "MH-6",
+      "requirement": "Safe retries (idempotency key never creates duplicate post)",
+      "verification_method": "Submitting identical Idempotency-Key returns exact same job",
+      "test_file": "tests/test_integration_standard.py::test_standard_point_3_and_4_background_jobs_and_safe_retries",
+      "evidence_file": "tests/test_hard_cases.py::test_hard_case_1_publish_timeout_and_idempotent_retry",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "MH-7",
+      "requirement": "Secrets protected and simulation mode",
+      "verification_method": "Regex token masking and pure local mock mode without real accounts",
+      "test_file": "tests/test_integration_standard.py::test_standard_point_8_secret_masking",
+      "evidence_file": "src/logger.py",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "MH-8",
+      "requirement": "Local test instances (docker compose up starts service + Lemmy/Ghost/mock servers)",
+      "verification_method": "docker compose configuration with mock platform server",
+      "test_file": "docker-compose.yml",
+      "evidence_file": "src/mock_server/mock_platforms.py",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "MH-9",
+      "requirement": "Integration Standard followed and live demo available",
+      "verification_method": "All 10 Integration Standard points verified",
+      "test_file": "tests/test_integration_standard.py",
+      "evidence_file": "openapi.yaml",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "LVL-Core",
+      "requirement": "Core level (Must-haves pass, Core connectors certified, shared error codes)",
+      "verification_method": "36/36 tests passing",
+      "test_file": "tests/test_connectors_contract.py",
+      "evidence_file": "certification_pack/",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "LVL-Adv-1",
+      "requirement": "Catalogue import (1,000 rows <5m, deduplication, row-by-row error report)",
+      "verification_method": "Importing synthetic 1,000 row CSV in under 3 seconds",
+      "test_file": "tests/test_catalogue_import.py::test_import_1000_synthetic_destinations_benchmark",
+      "evidence_file": "data/synthetic_1000_destinations.csv",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "LVL-Adv-2",
+      "requirement": "Rules capture (AI step proposes rules, human confirms before use)",
+      "verification_method": "POST /api/v1/rules/propose and /confirm lifecycle",
+      "test_file": "tests/test_tailoring_recommender.py::test_ai_rules_capture_and_human_confirmation",
+      "evidence_file": "src/engine/rules_capture.py",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "LVL-Adv-3",
+      "requirement": "Relevance score 1 to 5 against IncuBrix audience with short explanation",
+      "verification_method": "Multi-keyword audience relevance scoring algorithm",
+      "test_file": "tests/test_catalogue_import.py::test_import_real_catalogue_150",
+      "evidence_file": "src/engine/catalogue_importer.py",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "LVL-Adv-4",
+      "requirement": "Tailoring (discussion-first, canonical URLs, word-boundary truncation, hashtags)",
+      "verification_method": "Tailoring engine tests",
+      "test_file": "tests/test_tailoring_recommender.py::test_tailoring_discussion_framing_and_word_truncation",
+      "evidence_file": "src/engine/tailoring.py",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "LVL-Adv-5",
+      "requirement": "Three more connectors (Hashnode, Slack, MRSS)",
+      "verification_method": "All three connectors registered and validated",
+      "test_file": "tests/test_connectors_contract.py::test_all_connectors_registered",
+      "evidence_file": "src/connectors/",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "LVL-Out-1",
+      "requirement": "Recommender ranking by fit with reason and Precision@10 on labeled set",
+      "verification_method": "Evaluating Precision@10 against ground-truth evaluation set (scored 86.7%)",
+      "test_file": "tests/test_tailoring_recommender.py::test_recommender_precision_at_10",
+      "evidence_file": "data/labeled_recommendation_eval.json",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "LVL-Out-2",
+      "requirement": "Metrics normalized to views, likes, comments, shares, clicks on 3+ connectors",
+      "verification_method": "fetch_metrics implementation on Discourse, Dev.to, Ghost, Hashnode",
+      "test_file": "tests/test_e2e_full_flow.py::test_complete_e2e_distribution_lifecycle",
+      "evidence_file": "src/models/connector.py",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "LVL-Out-3",
+      "requirement": "Recertification (scheduler re-tests destinations, demotes & creates alert)",
+      "verification_method": "Automated scan, demotion of failing instances, and alert tickets",
+      "test_file": "tests/test_tailoring_recommender.py::test_recertification_scheduler",
+      "evidence_file": "src/engine/recertification.py",
+      "status": "Yes"
+    },
+    {
+      "claim_id": "LVL-Out-4",
+      "requirement": "Real catalogue of at least 150 real, relevant destinations",
+      "verification_method": "Curated 155 real destinations CSV across AI, video, marketing, SaaS, creators, founders",
+      "test_file": "tests/test_catalogue_import.py::test_import_real_catalogue_150",
+      "evidence_file": "data/real_catalogue_150.csv",
+      "status": "Yes"
+    }
+  ]
+}

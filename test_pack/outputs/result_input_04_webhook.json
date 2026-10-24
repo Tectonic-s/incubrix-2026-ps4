@@ -1,0 +1,30 @@
+{
+  "file": "input_04_webhook.json",
+  "job_id": "job_4e4e3776544a",
+  "status": "succeeded",
+  "progress": 100,
+  "results": {
+    "post_id": "ed5d3b73-2114-4748-a91d-f3fd8258fc27",
+    "platform_post_id": "hook_26795",
+    "live_url": "https://partner.example.com/events/hook_26795",
+    "status": "published",
+    "manifest_url": "/api/v1/storage/c48ee0eb_manifest_job_4e4e3776544a.json",
+    "destination_name": "Batch Webhook Destination",
+    "tailored_rendition": {
+      "title": "IncuBrix Product Release: Multi-Platform Automation Engine",
+      "body": "Official partner syndication release notes covering our v2 API connector interfaces and background job queuing subsystem.",
+      "media_urls": [],
+      "tags": [
+        "startups",
+        "release",
+        "saas"
+      ],
+      "canonical_url": null,
+      "is_promotional": false,
+      "has_ai_disclosure": true,
+      "extra_meta": {}
+    }
+  },
+  "error": null,
+  "elapsed_seconds": 0.512
+}

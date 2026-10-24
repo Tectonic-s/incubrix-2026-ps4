@@ -1,0 +1,14 @@
+{
+  "rendition": {
+    "title": "Optimizing High-Throughput Video Processing Pipelines with FFmpeg and Go",
+    "body": "Here is an exploration of how we reduced latency by 45% when processing concurrent user videos using hardware-accelerated transcoding filters.",
+    "tags": [
+      "video",
+      "performance",
+      "go"
+    ],
+    "is_promotional": false,
+    "has_ai_disclosure": true
+  },
+  "destination_id": "Batch Discourse Destination"
+}

@@ -1,0 +1,1216 @@
+openapi: 3.1.0
+info:
+  title: IncuBrix Long-Tail Distribution Network Service
+  description: Containerised distribution connector service conforming to IncuBrix
+    Connector Contract and Integration Standards.
+  version: 1.0.0
+paths:
+  /api/v1/ready:
+    get:
+      summary: Health Check
+      operationId: health_check_api_v1_ready_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /api/v1/health:
+    get:
+      summary: Health Check
+      operationId: health_check_api_v1_health_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /ready:
+    get:
+      summary: Health Check
+      operationId: health_check_ready_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /health:
+    get:
+      summary: Health Check
+      operationId: health_check_health_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /api/v1/storage/{storage_key}:
+    get:
+      summary: Get Storage File
+      operationId: get_storage_file_api_v1_storage__storage_key__get
+      parameters:
+      - name: storage_key
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Storage Key
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/connector/{connector_key}/validate:
+    post:
+      summary: Connector Validate
+      operationId: connector_validate_api_v1_connector__connector_key__validate_post
+      parameters:
+      - name: connector_key
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Connector Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidateRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/{connector_key}/validate:
+    post:
+      summary: Connector Validate
+      operationId: connector_validate_connector_v1__connector_key__validate_post
+      parameters:
+      - name: connector_key
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Connector Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidateRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/connector/{connector_key}/publish:
+    post:
+      summary: Connector Publish
+      operationId: connector_publish_api_v1_connector__connector_key__publish_post
+      parameters:
+      - name: connector_key
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Connector Key
+      - name: Idempotency-Key
+        in: header
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Idempotency-Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublishRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/{connector_key}/publish:
+    post:
+      summary: Connector Publish
+      operationId: connector_publish_connector_v1__connector_key__publish_post
+      parameters:
+      - name: connector_key
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Connector Key
+      - name: Idempotency-Key
+        in: header
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Idempotency-Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublishRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/connector/{connector_key}/get_status:
+    post:
+      summary: Connector Get Status
+      operationId: connector_get_status_api_v1_connector__connector_key__get_status_post
+      parameters:
+      - name: connector_key
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Connector Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetStatusRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/{connector_key}/get_status:
+    post:
+      summary: Connector Get Status
+      operationId: connector_get_status_connector_v1__connector_key__get_status_post
+      parameters:
+      - name: connector_key
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Connector Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetStatusRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/connector/{connector_key}/delete:
+    post:
+      summary: Connector Delete
+      operationId: connector_delete_api_v1_connector__connector_key__delete_post
+      parameters:
+      - name: connector_key
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Connector Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/{connector_key}/delete:
+    post:
+      summary: Connector Delete
+      operationId: connector_delete_connector_v1__connector_key__delete_post
+      parameters:
+      - name: connector_key
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Connector Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/connector/{connector_key}/fetch_metrics:
+    post:
+      summary: Connector Fetch Metrics
+      operationId: connector_fetch_metrics_api_v1_connector__connector_key__fetch_metrics_post
+      parameters:
+      - name: connector_key
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Connector Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FetchMetricsRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/{connector_key}/fetch_metrics:
+    post:
+      summary: Connector Fetch Metrics
+      operationId: connector_fetch_metrics_connector_v1__connector_key__fetch_metrics_post
+      parameters:
+      - name: connector_key
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Connector Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FetchMetricsRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/connector/{connector_key}/refresh_auth:
+    post:
+      summary: Connector Refresh Auth
+      operationId: connector_refresh_auth_api_v1_connector__connector_key__refresh_auth_post
+      parameters:
+      - name: connector_key
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Connector Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshAuthRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/{connector_key}/refresh_auth:
+    post:
+      summary: Connector Refresh Auth
+      operationId: connector_refresh_auth_connector_v1__connector_key__refresh_auth_post
+      parameters:
+      - name: connector_key
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Connector Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshAuthRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/connector/{connector_key}/build_assist_pack:
+    post:
+      summary: Connector Build Assist Pack
+      operationId: connector_build_assist_pack_api_v1_connector__connector_key__build_assist_pack_post
+      parameters:
+      - name: connector_key
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Connector Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BuildAssistPackRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /connector/v1/{connector_key}/build_assist_pack:
+    post:
+      summary: Connector Build Assist Pack
+      operationId: connector_build_assist_pack_connector_v1__connector_key__build_assist_pack_post
+      parameters:
+      - name: connector_key
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Connector Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BuildAssistPackRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/connectors:
+    get:
+      summary: List Connectors
+      operationId: list_connectors_api_v1_connectors_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /api/v1/connectors/{connector_key}/manifest:
+    get:
+      summary: Get Connector Manifest
+      operationId: get_connector_manifest_api_v1_connectors__connector_key__manifest_get
+      parameters:
+      - name: connector_key
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Connector Key
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/destinations:
+    get:
+      summary: List Destinations
+      operationId: list_destinations_api_v1_destinations_get
+      parameters:
+      - name: platform_key
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Platform Key
+      - name: level
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Level
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 100
+          title: Limit
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 0
+          title: Offset
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      summary: Create Destination
+      operationId: create_destination_api_v1_destinations_post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Destination'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/publish:
+    post:
+      summary: Publish Content
+      operationId: publish_content_api_v1_publish_post
+      parameters:
+      - name: Idempotency-Key
+        in: header
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Idempotency-Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublishJobRequest'
+      responses:
+        '202':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/jobs/{job_id}:
+    get:
+      summary: Get Job Status
+      operationId: get_job_status_api_v1_jobs__job_id__get
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Job Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/certify:
+    post:
+      summary: Run Certification
+      operationId: run_certification_api_v1_certify_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CertifyRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/catalogue/import:
+    post:
+      summary: Import Catalogue
+      operationId: import_catalogue_api_v1_catalogue_import_post
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_import_catalogue_api_v1_catalogue_import_post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/rules/propose:
+    post:
+      summary: Propose Rules
+      operationId: propose_rules_api_v1_rules_propose_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProposeRulesRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/rules/confirm:
+    post:
+      summary: Confirm Rules
+      operationId: confirm_rules_api_v1_rules_confirm_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConfirmRulesRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/recommend:
+    post:
+      summary: Recommend Destinations
+      operationId: recommend_destinations_api_v1_recommend_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecommendRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/recertify:
+    post:
+      summary: Trigger Recertification
+      operationId: trigger_recertification_api_v1_recertify_post
+      parameters:
+      - name: force_all
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+          title: Force All
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    Body_import_catalogue_api_v1_catalogue_import_post:
+      properties:
+        file:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: File
+        url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Url
+      type: object
+      title: Body_import_catalogue_api_v1_catalogue_import_post
+    BuildAssistPackRequest:
+      properties:
+        rendition:
+          $ref: '#/components/schemas/Rendition'
+        destination:
+          $ref: '#/components/schemas/Destination'
+      type: object
+      required:
+      - rendition
+      - destination
+      title: BuildAssistPackRequest
+    CertifyRequest:
+      properties:
+        destination_id:
+          type: string
+          title: Destination Id
+        connection:
+          anyOf:
+          - $ref: '#/components/schemas/Connection'
+          - type: 'null'
+      type: object
+      required:
+      - destination_id
+      title: CertifyRequest
+    ConfirmRulesRequest:
+      properties:
+        proposal_id:
+          type: string
+          title: Proposal Id
+        confirmed_rules:
+          additionalProperties: true
+          type: object
+          title: Confirmed Rules
+        destination_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Destination Id
+      type: object
+      required:
+      - proposal_id
+      - confirmed_rules
+      title: ConfirmRulesRequest
+    Connection:
+      properties:
+        base_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Base Url
+        api_key:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Api Key
+        token:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Token
+        username:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Username
+        webhook_secret:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Webhook Secret
+        extra_headers:
+          additionalProperties:
+            type: string
+          type: object
+          title: Extra Headers
+      type: object
+      title: Connection
+    DeleteRequest:
+      properties:
+        platform_post_id:
+          type: string
+          title: Platform Post Id
+        connection:
+          $ref: '#/components/schemas/Connection'
+      type: object
+      required:
+      - platform_post_id
+      - connection
+      title: DeleteRequest
+    Destination:
+      properties:
+        id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Id
+        name:
+          type: string
+          title: Name
+        url:
+          type: string
+          title: Url
+        platform_key:
+          type: string
+          title: Platform Key
+        surface:
+          type: string
+          title: Surface
+          default: topic
+        category:
+          type: string
+          title: Category
+          default: general
+        audience_tags:
+          items:
+            type: string
+          type: array
+          title: Audience Tags
+        language:
+          type: string
+          title: Language
+          default: en
+        geo:
+          type: string
+          title: Geo
+          default: global
+        est_audience:
+          type: integer
+          title: Est Audience
+          default: 1000
+        rules_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Rules Url
+        frequency_cap:
+          type: string
+          title: Frequency Cap
+          default: 1/7d
+        self_promo_allowed:
+          type: boolean
+          title: Self Promo Allowed
+          default: true
+        link_policy:
+          type: string
+          title: Link Policy
+          default: allowed
+        disclosure_required:
+          type: boolean
+          title: Disclosure Required
+          default: false
+        automation_allowed:
+          type: boolean
+          title: Automation Allowed
+          default: true
+        connector_key:
+          type: string
+          title: Connector Key
+        relevance_score:
+          type: integer
+          maximum: 5.0
+          minimum: 1.0
+          title: Relevance Score
+          default: 3
+        relevance_reason:
+          type: string
+          title: Relevance Reason
+          default: ''
+        level:
+          type: string
+          title: Level
+          default: L0
+        last_certified_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Last Certified At
+        config:
+          additionalProperties: true
+          type: object
+          title: Config
+      type: object
+      required:
+      - name
+      - url
+      - platform_key
+      - connector_key
+      title: Destination
+    FetchMetricsRequest:
+      properties:
+        platform_post_id:
+          type: string
+          title: Platform Post Id
+        connection:
+          $ref: '#/components/schemas/Connection'
+        since:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Since
+      type: object
+      required:
+      - platform_post_id
+      - connection
+      title: FetchMetricsRequest
+    GetStatusRequest:
+      properties:
+        platform_post_id:
+          type: string
+          title: Platform Post Id
+        connection:
+          $ref: '#/components/schemas/Connection'
+      type: object
+      required:
+      - platform_post_id
+      - connection
+      title: GetStatusRequest
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    JobResponse:
+      properties:
+        job_id:
+          type: string
+          title: Job Id
+        status:
+          $ref: '#/components/schemas/JobStatus'
+        progress:
+          type: integer
+          maximum: 100.0
+          minimum: 0.0
+          title: Progress
+          default: 0
+        result_links:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Result Links
+        error:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Error
+      type: object
+      required:
+      - job_id
+      - status
+      title: JobResponse
+    JobStatus:
+      type: string
+      enum:
+      - queued
+      - running
+      - succeeded
+      - failed
+      title: JobStatus
+    ProposeRulesRequest:
+      properties:
+        community_url:
+          type: string
+          title: Community Url
+        rules_text_or_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Rules Text Or Url
+      type: object
+      required:
+      - community_url
+      title: ProposeRulesRequest
+    PublishJobRequest:
+      properties:
+        rendition:
+          $ref: '#/components/schemas/Rendition'
+        destination_id:
+          type: string
+          title: Destination Id
+        connection:
+          anyOf:
+          - $ref: '#/components/schemas/Connection'
+          - type: 'null'
+        callback_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Callback Url
+      type: object
+      required:
+      - rendition
+      - destination_id
+      title: PublishJobRequest
+    PublishRequest:
+      properties:
+        rendition:
+          $ref: '#/components/schemas/Rendition'
+        destination:
+          $ref: '#/components/schemas/Destination'
+        connection:
+          $ref: '#/components/schemas/Connection'
+        idempotency_key:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Idempotency Key
+      type: object
+      required:
+      - rendition
+      - destination
+      - connection
+      title: PublishRequest
+    RecommendRequest:
+      properties:
+        rendition:
+          $ref: '#/components/schemas/Rendition'
+        top_k:
+          type: integer
+          title: Top K
+          default: 10
+      type: object
+      required:
+      - rendition
+      title: RecommendRequest
+    RefreshAuthRequest:
+      properties:
+        connection:
+          $ref: '#/components/schemas/Connection'
+      type: object
+      required:
+      - connection
+      title: RefreshAuthRequest
+    Rendition:
+      properties:
+        title:
+          type: string
+          title: Title
+        body:
+          type: string
+          title: Body
+        media_urls:
+          items:
+            type: string
+          type: array
+          title: Media Urls
+        tags:
+          items:
+            type: string
+          type: array
+          title: Tags
+        canonical_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Canonical Url
+        is_promotional:
+          type: boolean
+          title: Is Promotional
+          default: false
+        has_ai_disclosure:
+          type: boolean
+          title: Has Ai Disclosure
+          default: false
+        extra_meta:
+          additionalProperties: true
+          type: object
+          title: Extra Meta
+      type: object
+      required:
+      - title
+      - body
+      title: Rendition
+    ValidateRequest:
+      properties:
+        rendition:
+          $ref: '#/components/schemas/Rendition'
+        destination:
+          $ref: '#/components/schemas/Destination'
+        connection:
+          $ref: '#/components/schemas/Connection'
+      type: object
+      required:
+      - rendition
+      - destination
+      - connection
+      title: ValidateRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError

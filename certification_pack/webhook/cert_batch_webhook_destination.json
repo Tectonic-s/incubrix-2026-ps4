@@ -1,0 +1,29 @@
+{
+  "certification_id": "419c2984-b5d9-4389-9293-d28e104e8875",
+  "destination_name": "Batch Webhook Destination",
+  "destination_url": "https://webhook.batch-test.org",
+  "connector_key": "webhook",
+  "started_at": "2026-10-24T12:38:44.855903+00:00",
+  "steps": {
+    "validate": {
+      "ok": true,
+      "violations": []
+    },
+    "publish": {
+      "platform_post_id": "hook_36067",
+      "live_url": "https://partner.example.com/events/hook_36067",
+      "status": "published"
+    },
+    "get_status": {
+      "status": "active",
+      "live_url": "https://webhook.batch-test.org/events/hook_36067"
+    },
+    "delete": {
+      "deleted": true
+    }
+  },
+  "status": "passed",
+  "finished_at": "2026-10-24T12:38:44.855922+00:00",
+  "duration_seconds": 1.9e-05,
+  "level_assigned": "L3"
+}

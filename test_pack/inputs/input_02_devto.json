@@ -1,0 +1,15 @@
+{
+  "rendition": {
+    "title": "Building Resilient Microservices with Distributed Idempotency Keys",
+    "body": "Learn how safe retries, correlation IDs, and deduplication layers eliminate duplicate side-effects across distributed webhook consumers.",
+    "tags": [
+      "saas",
+      "architecture",
+      "webdev"
+    ],
+    "canonical_url": "https://incubrix.com/engineering/idempotency",
+    "is_promotional": false,
+    "has_ai_disclosure": true
+  },
+  "destination_id": "Batch Devto Destination"
+}

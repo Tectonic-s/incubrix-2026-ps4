@@ -1,0 +1,18 @@
+{
+  "file": "input_07_failure_promo_ban.json",
+  "job_id": "job_6a058d9cc7a3",
+  "status": "failed",
+  "progress": 50,
+  "results": null,
+  "error": {
+    "code": "DEST_SPEC_VIOLATION",
+    "message": "Posting rule violations: Destination strictly bans self-promotion and promotional content.",
+    "retryable": false,
+    "details": {
+      "violations": [
+        "Destination strictly bans self-promotion and promotional content."
+      ]
+    }
+  },
+  "elapsed_seconds": 0.516
+}

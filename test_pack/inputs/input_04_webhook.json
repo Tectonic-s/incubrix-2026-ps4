@@ -1,0 +1,14 @@
+{
+  "rendition": {
+    "title": "IncuBrix Product Release: Multi-Platform Automation Engine",
+    "body": "Official partner syndication release notes covering our v2 API connector interfaces and background job queuing subsystem.",
+    "tags": [
+      "startups",
+      "release",
+      "saas"
+    ],
+    "is_promotional": false,
+    "has_ai_disclosure": true
+  },
+  "destination_id": "Batch Webhook Destination"
+}

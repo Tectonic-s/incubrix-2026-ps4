@@ -1,0 +1,38 @@
+{
+  "certification_id": "c05f0756-f94d-40b6-a909-cae0ad328d7f",
+  "destination_name": "Discourse Certification Instance",
+  "destination_url": "https://discourse.example.com",
+  "connector_key": "discourse",
+  "started_at": "2026-10-24T12:38:44.816771+00:00",
+  "steps": {
+    "validate": {
+      "ok": true,
+      "violations": []
+    },
+    "publish": {
+      "platform_post_id": "disc_11535",
+      "live_url": "https://discourse.example.com/t/disc_11535",
+      "status": "published"
+    },
+    "get_status": {
+      "status": "active",
+      "live_url": "https://discourse.example.com/t/disc_11535"
+    },
+    "metrics": {
+      "views": 120,
+      "likes": 15,
+      "comments": 4,
+      "shares": 0,
+      "saves": 0,
+      "watch_time_s": 0,
+      "clicks": 0
+    },
+    "delete": {
+      "deleted": true
+    }
+  },
+  "status": "passed",
+  "finished_at": "2026-10-24T12:38:44.823237+00:00",
+  "duration_seconds": 0.006466,
+  "level_assigned": "L4"
+}
