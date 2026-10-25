@@ -1,6 +1,6 @@
 {
   "file": "input_06_failure_frequency_cap.json",
-  "job_id": "job_0679a2df8307",
+  "job_id": "job_da45bea04442",
   "status": "failed",
   "progress": 50,
   "results": null,
@@ -12,5 +12,5 @@
       "reschedule_at": "2026-10-31T12:28:53.686537+00:00"
     }
   },
-  "elapsed_seconds": 0.515
+  "elapsed_seconds": 0.517
 }

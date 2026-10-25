@@ -1,9 +1,9 @@
 {
-  "certification_id": "da415135-c5ea-4e10-bf72-2ecd750e2f38",
+  "certification_id": "2209ebcd-c334-47d1-8c58-ed280ba7ec0b",
   "destination_name": "Schema Drift Forum",
   "destination_url": "http://mock-drift.test",
   "connector_key": "discourse",
-  "started_at": "2026-10-25T15:27:03.891117+00:00",
+  "started_at": "2026-10-25T16:14:03.481839+00:00",
   "steps": {
     "validate": {
       "ok": true,
@@ -12,7 +12,7 @@
   },
   "status": "failed",
   "error": "Discourse API schema drift: unexpected field structure in API response.",
-  "finished_at": "2026-10-25T15:27:03.891250+00:00",
-  "duration_seconds": 0.000133,
+  "finished_at": "2026-10-25T16:14:03.481952+00:00",
+  "duration_seconds": 0.000113,
   "level_assigned": "L0"
 }

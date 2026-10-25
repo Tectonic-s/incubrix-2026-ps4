@@ -22,9 +22,16 @@ echo "1. Executing Pytest Test Suite..."
 $PYTEST_BIN -v
 rm -f test_clean.db
 
+API_URL="http://localhost:8001"
+if curl -s http://localhost:8001/health > /dev/null 2>&1; then
+    API_URL="http://localhost:8001"
+elif curl -s http://localhost:8000/health > /dev/null 2>&1; then
+    API_URL="http://localhost:8000"
+fi
+
 echo ""
-echo "2. Executing CLI Batch Runner on Test Pack..."
-$PYTHON_BIN -m src.cli.batch_runner --input test_pack/inputs --output test_pack/outputs --api-url http://localhost:8000
+echo "2. Executing CLI Batch Runner on Test Pack (targeting $API_URL)..."
+$PYTHON_BIN -m src.cli.batch_runner --input test_pack/inputs --output test_pack/outputs --api-url $API_URL
 
 echo ""
 echo "=========================================================="

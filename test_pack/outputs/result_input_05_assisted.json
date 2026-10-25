@@ -1,14 +1,14 @@
 {
   "file": "input_05_assisted.json",
-  "job_id": "job_40359ae763bd",
+  "job_id": "job_0141fe69b153",
   "status": "succeeded",
   "progress": 100,
   "results": {
-    "post_id": "914f3a07-5131-432e-97cc-ec541a70efc6",
-    "platform_post_id": "assist_61569",
+    "post_id": "6a693997-2e5e-42f6-8fd4-891e7838fea3",
+    "platform_post_id": "assist_6002",
     "live_url": "https://assisted.batch-test.org",
     "status": "ready_for_manual_post",
-    "manifest_url": "/api/v1/storage/0fba28e4_manifest_job_40359ae763bd.json",
+    "manifest_url": "/api/v1/storage/4219f3be_manifest_job_0141fe69b153.json",
     "destination_name": "Batch Assisted Destination",
     "tailored_rendition": {
       "title": "Lessons Bootstrapping an AI Video Editing Startup to First 1,000 Users",
@@ -26,5 +26,5 @@
     }
   },
   "error": null,
-  "elapsed_seconds": 0.521
+  "elapsed_seconds": 0.519
 }

@@ -1,14 +1,14 @@
 {
   "file": "input_02_devto.json",
-  "job_id": "job_deba6fd0e935",
+  "job_id": "job_67c0d2c01f91",
   "status": "succeeded",
   "progress": 100,
   "results": {
-    "post_id": "7aa7e734-cfcc-4424-8167-8adad7866c84",
-    "platform_post_id": "devto_62149",
-    "live_url": "https://dev.to/article/devto_62149",
+    "post_id": "f3012357-3c48-4b65-95a2-a9e609905cbd",
+    "platform_post_id": "devto_75494",
+    "live_url": "https://dev.to/article/devto_75494",
     "status": "published",
-    "manifest_url": "/api/v1/storage/5a6b2e39_manifest_job_deba6fd0e935.json",
+    "manifest_url": "/api/v1/storage/42edf354_manifest_job_67c0d2c01f91.json",
     "destination_name": "Batch Devto Destination",
     "tailored_rendition": {
       "title": "Building Resilient Microservices with Distributed Idempotency Keys",
@@ -26,5 +26,5 @@
     }
   },
   "error": null,
-  "elapsed_seconds": 0.517
+  "elapsed_seconds": 0.519
 }
