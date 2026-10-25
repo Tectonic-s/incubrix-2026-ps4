@@ -1,9 +1,11 @@
 # IncuBrix 2027 — PS4: Technical Engineering Report
 
+**Candidate Name:** Tharun S  
+**Registered Email:** tharun.suresh@outlook.com  
 **Candidate Role:** Associate Tech Partner  
 **Assessment Problem Statement:** PS4 — Distribution: Long-Tail Destination Network  
 **Assessment Level Targeted & Achieved:** Outstanding Level (Core + Advanced + Outstanding Requirements)  
-**Date:** October 24, 2026  
+**Date:** October 25, 2026  
 **Status:** Complete & Submission Ready  
 
 ---

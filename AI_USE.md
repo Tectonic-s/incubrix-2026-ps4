@@ -1,9 +1,11 @@
 # IncuBrix 2027 — PS4: AI Assistance & Tool Disclosure
 
+**Candidate Name:** Tharun S  
+**Registered Email:** tharun.suresh@outlook.com  
 **Candidate Role:** Associate Tech Partner  
 **Assessment Problem Statement:** PS4 — Distribution: Long-Tail Destination Network  
 **Assessment Term:** IncuBrix 2027  
-**Date:** October 24, 2026  
+**Date:** October 25, 2026  
 
 ---
 
