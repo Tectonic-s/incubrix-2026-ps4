@@ -8,7 +8,7 @@ from httpx import AsyncClient
 @pytest.mark.asyncio
 async def test_complete_e2e_distribution_lifecycle(client: AsyncClient):
     unique_suffix = uuid.uuid4().hex[:6]
-    dest_name = f"E2E AI Developers Community {unique_suffix}"
+    dest_name = "E2E AI Developers Community"
     dest_url = f"https://e2e-forum-{unique_suffix}.org"
 
     # Step 1: Register destination configuration row (Must-Have 3)
