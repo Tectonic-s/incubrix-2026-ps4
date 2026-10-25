@@ -1,120 +1,170 @@
-# IncuBrix 2027 — PS4: 8-Minute Unedited Demo Video Script & Checklist
+# IncuBrix 2027 — PS4: Easy-to-Follow Demo Video Guide
 
-This document provides a concise, minute-by-minute walkthrough and verification checklist for recording the required **unedited video demonstration** (maximum 8 minutes) for **PS4 — Distribution: Long-Tail Destination Network**.
-
----
-
-## Pre-Recording Checklist
-
-- [ ] Working directory set to `/Users/tectonic/Desktop/Incubrix/PS4`.
-- [ ] Virtual environment `.venv` active: `source .venv/bin/activate`.
-- [ ] Terminal window open with legible font size.
-- [ ] Second browser tab or HTTP client ready (or terminal with `curl` / `jq`).
-- [ ] API server running: `uvicorn src.api.app:app --host 0.0.0.0 --port 8000`.
-- [ ] Verification script ready: `./run_tests.sh`.
+> **Single Source of Truth for Recording Your Unedited 7-Minute Demo Video**  
+> *Target Duration: 7m 00s to 7m 30s (Max allowed: 8m 00s)*  
+> *Tone: Natural, relaxed, zero-jargon, confident software engineer.*
 
 ---
 
-## Minute-by-Minute Video Script (Total Duration: 7m 45s)
+## 🛠️ 30-Second Pre-Recording Setup
 
-### Minute 0:00 – 1:00: Architectural Overview & Scope
-- **Visual:** Display `README.md` with the Mermaid architecture diagram on screen.
-- **Narrative:**
-  - *"Hello, this is my submission demonstration for IncuBrix 2027 Problem Statement 4: Long-Tail Destination Network."*
-  - *"Our goal is to autonomously distribute content to the fragmented long-tail internet—developer forums like Discourse, federated nodes like Lemmy, blogging networks like Dev.to, CMS engines like Ghost, and custom webhooks—while safeguarding community goodwill and complying with the 10-point IncuBrix Integration Standard."*
-  - *"We have achieved all Must-Haves, Core Level, Advanced Level, and Outstanding Level criteria across 9 connectors, an intelligent pre-publish rules engine, content tailoring, and an empirical recommendation engine."*
+1. **Terminal Open:** In `/Users/tectonic/Desktop/Incubrix/PS4` with `.venv` active (`source .venv/bin/activate`). Font size set to 16pt+ so text is easy to read on video.
+2. **Browser Open:** Tab 1 open to `http://localhost:8001/` (Command Center UI).
+3. **Excel Ready:** Have `IncuBrix_Assessment_4_Distribution_Long_Tail_Destination_Network_Submission_Form.xlsx` ready to show at the end.
+4. **Recording Started:** Hit record on your screen recording tool (QuickTime or OBS). No editing needed!
 
 ---
 
-### Minute 1:00 – 2:00: Environment Startup & Integration Standard Health Checks
-- **Visual:** Switch to Terminal.
-- **Actions & Commands:**
+## ⏱️ Step-by-Step Minute Guide
+
+---
+
+### Step 1 [0:00 – 1:00]: Introduction & The Problem We Solve
+- **What to show on screen:** Browser showing the **Command Center UI** (`http://localhost:8001/`).
+- **What to say aloud:**
+  > *"Hi everyone, this is my submission demo for IncuBrix Problem Statement 4: Long-Tail Destination Network.*
+  >
+  > *The problem we're solving is simple: mainstream social platforms like Twitter or LinkedIn are easy to post to, but developers and high-value audiences actually hang out on niche forums like Discourse, Fediverse communities like Lemmy, blogging sites like Dev.to, and private Slack channels.*
+  >
+  > *The challenge is that every community has different rules, different APIs, and strict anti-spam policies. If you post too fast or sound like a marketer, they will ban your account.*
+  >
+  > *Our service acts as a safe, smart gateway: it checks rules before posting, tailors the text for each community, handles async jobs and safe retries, and connects to 9 different platforms. Here on port 8001, we have our live Command Center."*
+
+---
+
+### Step 2 [1:00 – 2:15]: Running All 42 Automated Tests
+- **What to show on screen:** Switch to **Terminal**.
+- **What command to run:**
   ```bash
-  # Check health and readiness endpoints
-  curl -s http://localhost:8000/health | jq .
-  curl -s http://localhost:8000/ready | jq .
+  DATABASE_URL=sqlite:///./test_clean.db .venv/bin/pytest -v
   ```
-- **Narrative:**
-  - *"Here we see the service running locally with sub-millisecond response times. Both `/health` and `/ready` verify that the SQLite WAL database and storage provider are operational, conforming to Integration Standard Point 1."*
-  - *"The full API contract is exposed in standard OpenAPI 3.1 format at `openapi.yaml`."*
-
----
-
-### Minute 2:00 – 3:30: Automated Test Suite & Hard Cases (36 Tests)
-- **Visual:** Terminal.
-- **Actions & Commands:**
-  ```bash
-  ./run_tests.sh
+- **What the output looks like:**
+  ```text
+  tests/test_catalogue_import.py ... PASSED
+  tests/test_certification_harness.py ... PASSED
+  tests/test_connectors_contract.py ..... PASSED
+  tests/test_e2e_full_flow.py . PASSED
+  tests/test_hard_cases.py ....... PASSED
+  tests/test_integration_standard.py ........ PASSED
+  tests/test_quirks_and_features.py ...... PASSED
+  tests/test_rules_engine.py .... PASSED
+  tests/test_tailoring_recommender.py ..... PASSED
+  ======================== 42 passed in 0.94s ========================
   ```
-- **Narrative:**
-  - *"Let's execute the full verification test suite. With a single command, pytest runs 36 automated tests in just 0.87 seconds."*
-  - *"Notice the test coverage: we rigorously test connector contract compliance, 4-step certification, 1,000-row catalogue import, content tailoring, Precision@10 recommendation, and all 10 points of the Integration Standard."*
-  - *"Additionally, we test 7 Hard Cases including publish timeouts, platform 429 rate limits, 401 token expirations, 422 payload violations, oversized media handling, schema drift with automatic demotion to L0, and dirty CSV deduplication."*
+- **What to say aloud:**
+  > *"Let's start by running our automated test suite.*
+  >
+  > *With one command, all 42 tests pass in under one second.*
+  >
+  > *This proves our 9 connectors work, our rules engine catches violations, our tailoring engine formats articles, and our recommendation engine hits 86.7% precision.*
+  >
+  > *We also test 7 tough edge cases like rate limits, expired tokens, oversized media, and platform schema drift."*
 
 ---
 
-### Minute 3:30 – 5:00: Asynchronous Publishing, Idempotency & Assisted Packs
-- **Visual:** Terminal executing publishing commands.
-- **Actions & Commands:**
+### Step 3 [2:15 – 3:45]: Publishing a Post & Proving Safe Retries (Idempotency)
+- **What to show on screen:** Terminal.
+- **Command 1 (Dispatch a new post):**
   ```bash
-  # 1. Asynchronous publishing with Idempotency-Key
-  curl -X POST http://localhost:8000/api/v1/publish \
+  curl -X POST http://localhost:8001/api/v1/publish \
     -H "Content-Type: application/json" \
-    -H "Idempotency-Key: demo-idempotency-key-001" \
+    -H "Idempotency-Key: demo-video-key-001" \
     -d '{
       "destination_id": "discourse-dev-forum",
-      "content": {
-        "title": "Scaling Distributed Workflows in 2027",
-        "body_markdown": "Here is an in-depth exploration of asynchronous job queues and retry backoffs.",
+      "rendition": {
+        "title": "Scaling Distributed Pipelines in 2027",
+        "body": "A practical guide to worker queues and retry backoffs.",
         "tags": ["python", "architecture"]
       }
     }' | jq .
-
-  # 2. Re-send identical request to prove idempotency
-  curl -X POST http://localhost:8000/api/v1/publish \
-    -H "Content-Type: application/json" \
-    -H "Idempotency-Key: demo-idempotency-key-001" \
-    -d '{ ... }' | jq .
-
-  # 3. Poll job status
-  curl -s http://localhost:8000/api/v1/jobs/<JOB_ID> | jq .
   ```
-- **Narrative:**
-  - *"Notice the publishing flow: `POST /api/v1/publish` returns an immediate HTTP 202 Accepted with a unique `job_id`, satisfying Integration Standard Point 3."*
-  - *"When we send the same request with the same `Idempotency-Key`, the system detects duplicate dispatch and returns the existing cached job without double-posting, satisfying Point 4."*
-  - *"Polling `/api/v1/jobs/{job_id}` confirms the job succeeded, returning the live destination post URL."*
-  - *"For platforms without public APIs, our Assisted Pack connector automatically packages Markdown, copy, and media assets into a signed ZIP bundle stored in object storage."*
+  - **Output on screen:** `HTTP 202 Accepted` with `"job_id": "job_...", "status": "queued"`.
+  - **What to say aloud:**
+    > *"Now let's publish a post. Because network calls take time, our API returns an immediate HTTP 202 Accepted with a job ID so the caller never hangs."*
+
+- **Command 2 (Re-send the EXACT same command to prove idempotency):**
+  - Hit `Up Arrow` in terminal and run the exact same `curl` again with the same `Idempotency-Key`.
+  - **Output on screen:** Returns the exact same job ID immediately!
+  - **What to say aloud:**
+    > *"Now watch this: if my network drops and my client resends the exact same request with the same Idempotency Key, our server detects the duplicate and returns the existing job. It never creates a duplicate post or double-bills."*
+
+- **Command 3 (Check the job status):**
+  ```bash
+  curl -s http://localhost:8001/api/v1/jobs/<PASTE_JOB_ID_HERE> | jq .
+  ```
+  - **Output on screen:** `"status": "succeeded", "progress": 100`, with `"live_url": "https://..."`.
+  - **What to say aloud:**
+    > *"When we poll the job ID, we see it finished with 100% progress and gives us the live confirmed post link and output manifest."*
 
 ---
 
-### Minute 5:00 – 6:15: Pre-Publish Brand Safety Rules Engine in Action
-- **Visual:** Terminal triggering intentional policy violations.
-- **Actions & Commands:**
+### Step 4 [3:45 – 5:00]: Brand Safety in Action (Catching Rule Violations)
+- **What to show on screen:** Terminal.
+- **What command to run (Intentionally triggering a frequency cap rule):**
   ```bash
-  # Trigger frequency cap violation
-  curl -X POST http://localhost:8000/api/v1/publish \
+  curl -X POST http://localhost:8001/api/v1/publish \
     -H "Content-Type: application/json" \
     -d '{
       "destination_id": "discourse-freq-cap-test",
-      "content": {
-        "title": "Duplicate Post Within Cooldown",
-        "body_markdown": "This should be blocked by frequency capping.",
+      "rendition": {
+        "title": "Spamming another post too soon",
+        "body": "This post violates community cooldown.",
         "tags": ["test"]
       }
     }' | jq .
   ```
-- **Narrative:**
-  - *"Community goodwill is critical. Here, when we attempt to publish to a community that has an active cooldown policy (e.g., 1 post per 7 days), the Rules Engine immediately intercepts the request."*
-  - *"Instead of spamming the community, it returns an explicit error: `DEST_RULE_FREQUENCY_CAP` with HTTP 422, clear retry guidance, and zero network side-effects."*
-  - *"The same protection applies to affiliate links (`DEST_RULE_AFFILIATE_BLOCKED`) and undisclosed AI content (`DEST_RULE_AI_DISCLOSURE_REQUIRED`)."*
+  - Poll the returned `job_id`:
+    ```bash
+    curl -s http://localhost:8001/api/v1/jobs/<PASTE_JOB_ID_HERE> | jq .
+    ```
+- **What the output looks like:**
+  ```json
+  {
+    "status": "failed",
+    "error": {
+      "code": "DEST_RULE_FREQUENCY_CAP",
+      "message": "Frequency cap reached (1/7d). Next eligible post at 2026-10-31T18:00:00Z.",
+      "retryable": true
+    }
+  }
+  ```
+- **What to say aloud:**
+  > *"Now let's test brand safety. If you post to a developer forum too frequently, moderators will ban you.*
+  >
+  > *Here, I tried to post to a forum with a 7-day cooldown. Look at the output: our rules engine intercepted it before sending anything over the network.*
+  >
+  > *It returns an explicit error: DEST_RULE_FREQUENCY_CAP, and gives the exact date and time we are allowed to post again. The same system catches self-promotion links and missing AI disclosures."*
 
 ---
 
-### Minute 6:15 – 7:15: High-Speed Catalogue Import & Recommendation Engine
-- **Visual:** Terminal or Python REPL demonstrating catalogue import and Precision@10.
-- **Actions & Commands:**
+### Step 5 [5:00 – 6:15]: The Command Center UI & Live Content Tailoring
+- **What to show on screen:** Switch back to **Browser** at `http://localhost:8001/`.
+- **What to do on screen:**
+  1. Click the **"✍️ Studio"** tab.
+  2. Click the button **"Insert Sample Post"**.
+  3. Point to the **Split-Screen** on the right:
+     - Show the **"Community-Tailored Output"**: point out how the title became an open question (*"What are your thoughts on: ...?"*) and added a discussion prompt at the bottom.
+     - Show the **"Brand Safety & Ban Risk Meter"**: point to the green circle showing `Risk: 12% | A+ (Extremely Safe)`.
+  4. Click the **"🔌 Connectors"** tab:
+     - Show the 9 connectors (Discourse, Lemmy, Dev.to, Ghost, Webhook, Assisted, Hashnode, Slack, MRSS).
+     - Flip one of the toggle switches to demonstrate the runtime **Kill-Switch**.
+- **What to say aloud:**
+  > *"To make this intuitive, we built this interactive Command Center UI.*
+  >
+  > *In the Studio, as we write an article, our Tailoring Engine automatically rewrites it for the target community.*
+  >
+  > *For forums like Discourse, it turns our article into an engaging discussion starter instead of a broadcast link, and for blogs like Dev.to, it injects canonical SEO links.*
+  >
+  > *Notice our Ban Risk Meter: it analyzes marketing buzzwords and link density in real time, scoring this an A+.*
+  >
+  > *In the Connectors tab, we have all 9 connectors with live circuit breakers and instant kill-switches: with one click, I can disable any connector if a platform has downtime."*
+
+---
+
+### Step 6 [6:15 – 7:15]: High-Speed Catalogue Import Benchmark (1,000 Rows)
+- **What to show on screen:** Switch to **Terminal**.
+- **What command to run:**
   ```bash
-  # 1. Benchmark 1,000 synthetic destinations import
   .venv/bin/python -c "
   import asyncio
   from src.engine.catalogue_importer import import_catalogue_csv
@@ -122,34 +172,41 @@ This document provides a concise, minute-by-minute walkthrough and verification 
       res = asyncio.run(import_catalogue_csv(f.read()))
       print(f'Imported {res[\"imported\"]} rows in {res[\"duration_seconds\"]}s with {len(res[\"errors\"])} errors')
   "
-
-  # 2. Recommendation query
-  curl -X POST http://localhost:8000/api/v1/recommend \
-    -H "Content-Type: application/json" \
-    -d '{
-      "title": "Building Production Generative Video Pipelines",
-      "body_markdown": "Deep dive into ffmpeg, GPU acceleration, and video streaming.",
-      "tags": ["video", "gpu", "ai"]
-    }' | jq .
   ```
-- **Narrative:**
-  - *"Our catalogue importer parsed and deduplicated 1,000 destination rows in just 0.78 seconds—hundreds of times faster than the 5-minute requirement."*
-  - *"Our content recommendation engine matches articles to relevant destinations, achieving 86.7% Precision@10 against our labeled ground-truth set, complete with human-readable rationale explanations."*
+- **What the output looks like:**
+  ```text
+  Imported 980 rows in 0.78s with 20 errors
+  ```
+- **What to say aloud:**
+  > *"For large-scale operations, the brief required importing a CSV of 1,000 destinations in under 5 minutes.*
+  >
+  > *Our importer validated, normalized URLs, and deduplicated 1,000 rows in just 0.78 seconds—hundreds of times faster than the requirement.*
+  >
+  > *It also caught 20 malformed test rows with row-by-row error diagnostics."*
 
 ---
 
-### Minute 7:15 – 7:45: Submission Form Workbook & Deliverables Review
-- **Visual:** Briefly show `IncuBrix_Assessment_4_Distribution_Long_Tail_Destination_Network_Submission_Form.xlsx` in Excel or via script.
-- **Narrative:**
-  - *"All submission deliverables are complete: `IncuBrix_Assessment_4_Distribution_Long_Tail_Destination_Network_Submission_Form.xlsx` is fully populated with all yellow cells and verified evidence links across all sheets."*
-  - *"The repository includes `README.md`, `REPORT.md`, `SOURCES.md`, `AI_USE.md`, `openapi.yaml`, and the complete test pack outputs."*
-  - *"Thank you for your time and consideration."*
+### Step 7 [7:15 – 7:45]: Official Excel Workbook & Wrap-Up
+- **What to show on screen:** Switch to **Excel** (or preview) showing `IncuBrix_Assessment_4_Distribution_Long_Tail_Destination_Network_Submission_Form.xlsx`.
+- **What to show in the workbook:**
+  - Click on the `3_Levels` tab: show **Calculated Level: "Outstanding" (40/40 marks)**.
+  - Click on the `4_Integration` tab: show **Integration Standard: 20/20 marks**.
+  - Click on the `7_Declaration` tab: show **Signed Declaration**.
+- **What to say aloud:**
+  > *"To wrap up, here is our official submission form: IncuBrix_Assessment_4_Distribution_Long_Tail_Destination_Network_Submission_Form.xlsx.*
+  >
+  > *Every single yellow input cell, evidence link, and measurement is filled out.*
+  >
+  > *All 9 must-haves are verified, our calculated level is Outstanding with 40 out of 40 marks, and all 10 Integration Standards are met.*
+  >
+  > *Everything is committed in git, fully containerised, and ready for review. Thank you!"*
 
 ---
 
-## Post-Recording Verification Checklist
+## ✅ Post-Recording Checklist
 
-- [ ] Total video duration is under 8 minutes (target: 7m 30s to 7m 45s).
-- [ ] Video is continuous and unedited (single take).
-- [ ] Audio is crisp and clearly audible.
-- [ ] All commands executed cleanly without unexpected terminal errors.
+- [ ] Check video duration in player: **Between 7m 00s and 7m 45s** (under the 8-minute limit).
+- [ ] Check audio: Voice is clear and audible over terminal keystrokes.
+- [ ] No cuts or splices (continuous single-take).
+- [ ] Upload to YouTube (Unlisted) or Google Drive (Share $\rightarrow$ "Anyone with link can view").
+- [ ] Paste video link into Row 13 of Sheet `1_Your_Details` in your Excel submission workbook.
