@@ -1,9 +1,9 @@
 {
-  "certification_id": "fa2a9f6f-f2da-4ee2-892e-d9fe490bbcbe",
+  "certification_id": "a62da44d-8a30-4582-bc10-795b51f56c16",
   "destination_name": "API Drift Community",
   "destination_url": "https://drift.example.com",
   "connector_key": "discourse",
-  "started_at": "2026-10-25T14:24:44.960933+00:00",
+  "started_at": "2026-10-25T15:06:11.377354+00:00",
   "steps": {
     "validate": {
       "ok": true,
@@ -12,7 +12,7 @@
   },
   "status": "failed",
   "error": "Discourse API schema drift: unexpected field structure in API response.",
-  "finished_at": "2026-10-25T14:24:44.961053+00:00",
-  "duration_seconds": 0.00012,
+  "finished_at": "2026-10-25T15:06:11.377479+00:00",
+  "duration_seconds": 0.000125,
   "level_assigned": "L0"
 }
