@@ -16,10 +16,11 @@ else
 fi
 
 export SIMULATION_MODE=true
-export DATABASE_URL="sqlite:///./incubrix_ps4.db"
+export DATABASE_URL="sqlite:///./test_clean.db"
 
 echo "1. Executing Pytest Test Suite..."
 $PYTEST_BIN -v
+rm -f test_clean.db
 
 echo ""
 echo "2. Executing CLI Batch Runner on Test Pack..."
