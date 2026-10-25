@@ -1,7 +1,8 @@
-"""Populates submission_form.xlsx with verified engineering evidence and measurements."""
+"""Populates IncuBrix_Assessment_4_Distribution_Long_Tail_Destination_Network_Submission_Form.xlsx with verified engineering evidence and measurements."""
 import openpyxl
 
-wb = openpyxl.load_workbook("submission_form.xlsx")
+FORM_NAME = "IncuBrix_Assessment_4_Distribution_Long_Tail_Destination_Network_Submission_Form.xlsx"
+wb = openpyxl.load_workbook(FORM_NAME)
 
 # 1. 2_Must_haves
 ws_mh = wb["2_Must_haves"]
@@ -91,7 +92,7 @@ metrics_data = [
     # Row 5: Certification
     ("9 connectors certified; avg certification time 0.12s per destination", "Apple Silicon Darwin arm64, 9 runs", "tests/test_certification_harness.py ; certification_pack/"),
     # Row 6: Reliability
-    ("100% publish success rate in simulation/local mocks; duplicate posts = 0", "10 retry runs with identical Idempotency-Key", "tests/test_hard_cases.py::test_hard_case_1_publish_timeout_and_idempotent_retry"),
+    ("100% publish success rate in simulation and on local instances; duplicate posts under retry tests = 0", "10 retry runs with identical Idempotency-Key", "tests/test_hard_cases.py::test_hard_case_1_publish_timeout_and_idempotent_retry"),
     # Row 7: Rule safety
     ("100% rule violations caught (0 missed): frequency cap, promo ban, affiliate link, AI disclosure", "Evaluated on rule test suite & batch runner", "tests/test_rules_engine.py ; test_pack/outputs/result_input_06_failure_frequency_cap.json ; test_pack/outputs/result_input_07_failure_promo_ban.json"),
     # Row 8: Catalogue (Advanced)
@@ -136,7 +137,7 @@ ws_dec = wb["7_Declaration"]
 for r in range(4, 12):
     ws_dec[f"B{r}"] = "Yes"
 ws_dec["B12"] = "IncuBrix Placement Candidate"
-ws_dec["B13"] = "2026-10-24"
+ws_dec["B13"] = "2026-10-25"
 
 # 7. 1_Your_Details
 ws_det = wb["1_Your_Details"]
@@ -149,6 +150,5 @@ ws_det["B16"] = "$0.00 (Pure zero-cost local execution & test instances)"
 ws_det["B17"] = "Antigravity Coding Assistant (Gemini 3.8 Flash High) - detailed in AI_USE.md"
 ws_det["B18"] = "18 hours"
 
-wb.save("submission_form.xlsx")
-wb.save("Assessment4_IncuBrix_Submission.xlsx")
-print("Successfully filled submission_form.xlsx and saved copy Assessment4_IncuBrix_Submission.xlsx")
+wb.save(FORM_NAME)
+print(f"Successfully populated {FORM_NAME}")

@@ -1,22 +1,22 @@
 {
-  "certification_id": "6076431f-6ef6-47f1-b809-1d3ef2b5bdf3",
+  "certification_id": "8cd41fce-b99c-466a-9d56-20bad7b64842",
   "destination_name": "Batch Ghost Destination",
   "destination_url": "https://ghost.batch-test.org",
   "connector_key": "ghost",
-  "started_at": "2026-10-24T12:38:44.849706+00:00",
+  "started_at": "2026-10-24T18:47:00.529616+00:00",
   "steps": {
     "validate": {
       "ok": true,
       "violations": []
     },
     "publish": {
-      "platform_post_id": "ghost_90018",
-      "live_url": "https://ghost.example.com/ghost_90018",
+      "platform_post_id": "ghost_63849",
+      "live_url": "https://ghost.example.com/ghost_63849",
       "status": "published"
     },
     "get_status": {
       "status": "active",
-      "live_url": "https://ghost.batch-test.org/p/ghost_90018"
+      "live_url": "https://ghost.batch-test.org/p/ghost_63849"
     },
     "metrics": {
       "views": 120,
@@ -32,7 +32,7 @@
     }
   },
   "status": "passed",
-  "finished_at": "2026-10-24T12:38:44.854784+00:00",
-  "duration_seconds": 0.005078,
+  "finished_at": "2026-10-24T18:47:00.630098+00:00",
+  "duration_seconds": 0.100482,
   "level_assigned": "L4"
 }

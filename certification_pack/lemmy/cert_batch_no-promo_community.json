@@ -1,22 +1,22 @@
 {
-  "certification_id": "3f927023-d8d6-4185-95bb-96f16a64968b",
+  "certification_id": "0fb8b1ca-5e3d-4736-a90a-e156cce9a846",
   "destination_name": "Batch No-Promo Community",
   "destination_url": "https://nopromo.batch-test.org",
   "connector_key": "lemmy",
-  "started_at": "2026-10-24T12:38:44.858479+00:00",
+  "started_at": "2026-10-24T18:47:00.640620+00:00",
   "steps": {
     "validate": {
       "ok": true,
       "violations": []
     },
     "publish": {
-      "platform_post_id": "lemmy_23422",
-      "live_url": "https://lemmy.world/post/lemmy_23422",
+      "platform_post_id": "lemmy_74469",
+      "live_url": "https://lemmy.world/post/lemmy_74469",
       "status": "published"
     },
     "get_status": {
       "status": "active",
-      "live_url": "https://nopromo.batch-test.org/post/lemmy_23422"
+      "live_url": "https://nopromo.batch-test.org/post/lemmy_74469"
     },
     "metrics": {
       "views": 50,
@@ -32,7 +32,7 @@
     }
   },
   "status": "passed",
-  "finished_at": "2026-10-24T12:38:44.863650+00:00",
-  "duration_seconds": 0.005171,
+  "finished_at": "2026-10-24T18:47:00.872991+00:00",
+  "duration_seconds": 0.232371,
   "level_assigned": "L4"
 }

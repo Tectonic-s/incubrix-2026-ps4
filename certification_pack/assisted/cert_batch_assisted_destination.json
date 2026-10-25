@@ -1,16 +1,16 @@
 {
-  "certification_id": "d505baae-403a-4522-8e89-b8a8991b8778",
+  "certification_id": "562372fe-9a1a-46ce-a63c-410c1696619f",
   "destination_name": "Batch Assisted Destination",
   "destination_url": "https://assisted.batch-test.org",
   "connector_key": "assisted",
-  "started_at": "2026-10-24T12:38:44.857327+00:00",
+  "started_at": "2026-10-24T18:47:00.637810+00:00",
   "steps": {
     "validate": {
       "ok": true,
       "violations": []
     },
     "publish": {
-      "platform_post_id": "assist_61495",
+      "platform_post_id": "assist_87638",
       "live_url": "https://assisted.batch-test.org",
       "status": "ready_for_manual_post",
       "assist_pack": {
@@ -25,7 +25,7 @@
     }
   },
   "status": "passed",
-  "finished_at": "2026-10-24T12:38:44.857360+00:00",
-  "duration_seconds": 3.3e-05,
+  "finished_at": "2026-10-24T18:47:00.637890+00:00",
+  "duration_seconds": 8e-05,
   "level_assigned": "L1"
 }

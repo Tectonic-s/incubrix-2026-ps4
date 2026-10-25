@@ -1,14 +1,14 @@
 {
   "file": "input_03_ghost.json",
-  "job_id": "job_b16ec9a61bd6",
+  "job_id": "job_11010c81ffb8",
   "status": "succeeded",
   "progress": 100,
   "results": {
-    "post_id": "3b935d7a-a265-4d85-a8b8-52b5aa718505",
+    "post_id": "39a305b7-efd1-4847-9fe6-8e33565a2310",
     "platform_post_id": "ghost_63701",
     "live_url": "https://ghost.example.com/ghost_63701",
     "status": "published",
-    "manifest_url": "/api/v1/storage/7e9797b8_manifest_job_b16ec9a61bd6.json",
+    "manifest_url": "/api/v1/storage/6050d0d4_manifest_job_11010c81ffb8.json",
     "destination_name": "Batch Ghost Destination",
     "tailored_rendition": {
       "title": "The Next Decade of Creator Economy Distribution Channels",
@@ -26,5 +26,5 @@
     }
   },
   "error": null,
-  "elapsed_seconds": 0.513
+  "elapsed_seconds": 0.518
 }

@@ -2,20 +2,20 @@
   "total_inputs": 7,
   "succeeded": 5,
   "failed": 2,
-  "total_time_seconds": 3.641,
+  "total_time_seconds": 3.656,
   "api_url": "http://localhost:8000",
   "results": [
     {
       "file": "input_01_discourse.json",
-      "job_id": "job_55655f9d8e12",
+      "job_id": "job_7280bd92ae22",
       "status": "succeeded",
       "progress": 100,
       "results": {
-        "post_id": "65924c97-6e5b-4b7c-b17e-131d493e5052",
+        "post_id": "f353c914-04e9-49a1-9bd2-966fc1d890f3",
         "platform_post_id": "disc_78234",
         "live_url": "https://discourse.example.com/t/disc_78234",
         "status": "published",
-        "manifest_url": "/api/v1/storage/49798c26_manifest_job_55655f9d8e12.json",
+        "manifest_url": "/api/v1/storage/fe108e90_manifest_job_7280bd92ae22.json",
         "destination_name": "Batch Discourse Destination",
         "tailored_rendition": {
           "title": "What are your thoughts on: Optimizing High-Throughput Video Processing Pipelines with FFmpeg and Go?",
@@ -37,15 +37,15 @@
     },
     {
       "file": "input_02_devto.json",
-      "job_id": "job_b92b849090e7",
+      "job_id": "job_deba6fd0e935",
       "status": "succeeded",
       "progress": 100,
       "results": {
-        "post_id": "a914f21d-417a-40be-bd1b-2e48c1300e72",
+        "post_id": "7aa7e734-cfcc-4424-8167-8adad7866c84",
         "platform_post_id": "devto_62149",
         "live_url": "https://dev.to/article/devto_62149",
         "status": "published",
-        "manifest_url": "/api/v1/storage/95b3f6bb_manifest_job_b92b849090e7.json",
+        "manifest_url": "/api/v1/storage/5a6b2e39_manifest_job_deba6fd0e935.json",
         "destination_name": "Batch Devto Destination",
         "tailored_rendition": {
           "title": "Building Resilient Microservices with Distributed Idempotency Keys",
@@ -63,19 +63,19 @@
         }
       },
       "error": null,
-      "elapsed_seconds": 0.514
+      "elapsed_seconds": 0.517
     },
     {
       "file": "input_03_ghost.json",
-      "job_id": "job_b16ec9a61bd6",
+      "job_id": "job_11010c81ffb8",
       "status": "succeeded",
       "progress": 100,
       "results": {
-        "post_id": "3b935d7a-a265-4d85-a8b8-52b5aa718505",
+        "post_id": "39a305b7-efd1-4847-9fe6-8e33565a2310",
         "platform_post_id": "ghost_63701",
         "live_url": "https://ghost.example.com/ghost_63701",
         "status": "published",
-        "manifest_url": "/api/v1/storage/7e9797b8_manifest_job_b16ec9a61bd6.json",
+        "manifest_url": "/api/v1/storage/6050d0d4_manifest_job_11010c81ffb8.json",
         "destination_name": "Batch Ghost Destination",
         "tailored_rendition": {
           "title": "The Next Decade of Creator Economy Distribution Channels",
@@ -93,19 +93,19 @@
         }
       },
       "error": null,
-      "elapsed_seconds": 0.513
+      "elapsed_seconds": 0.518
     },
     {
       "file": "input_04_webhook.json",
-      "job_id": "job_4e4e3776544a",
+      "job_id": "job_0b23d968d8d0",
       "status": "succeeded",
       "progress": 100,
       "results": {
-        "post_id": "ed5d3b73-2114-4748-a91d-f3fd8258fc27",
+        "post_id": "a99bbb37-db55-4549-b3a7-0c73e300fe9f",
         "platform_post_id": "hook_26795",
         "live_url": "https://partner.example.com/events/hook_26795",
         "status": "published",
-        "manifest_url": "/api/v1/storage/c48ee0eb_manifest_job_4e4e3776544a.json",
+        "manifest_url": "/api/v1/storage/83652e2f_manifest_job_0b23d968d8d0.json",
         "destination_name": "Batch Webhook Destination",
         "tailored_rendition": {
           "title": "IncuBrix Product Release: Multi-Platform Automation Engine",
@@ -123,19 +123,19 @@
         }
       },
       "error": null,
-      "elapsed_seconds": 0.512
+      "elapsed_seconds": 0.519
     },
     {
       "file": "input_05_assisted.json",
-      "job_id": "job_faca1d644f7d",
+      "job_id": "job_40359ae763bd",
       "status": "succeeded",
       "progress": 100,
       "results": {
-        "post_id": "82e39e9d-18d1-4caf-9a7a-f03e99cc900a",
+        "post_id": "914f3a07-5131-432e-97cc-ec541a70efc6",
         "platform_post_id": "assist_61569",
         "live_url": "https://assisted.batch-test.org",
         "status": "ready_for_manual_post",
-        "manifest_url": "/api/v1/storage/be9eba75_manifest_job_faca1d644f7d.json",
+        "manifest_url": "/api/v1/storage/0fba28e4_manifest_job_40359ae763bd.json",
         "destination_name": "Batch Assisted Destination",
         "tailored_rendition": {
           "title": "Lessons Bootstrapping an AI Video Editing Startup to First 1,000 Users",
@@ -153,11 +153,11 @@
         }
       },
       "error": null,
-      "elapsed_seconds": 0.515
+      "elapsed_seconds": 0.521
     },
     {
       "file": "input_06_failure_frequency_cap.json",
-      "job_id": "job_14d8f5df7788",
+      "job_id": "job_0679a2df8307",
       "status": "failed",
       "progress": 50,
       "results": null,
@@ -173,7 +173,7 @@
     },
     {
       "file": "input_07_failure_promo_ban.json",
-      "job_id": "job_6a058d9cc7a3",
+      "job_id": "job_22683cf1ba89",
       "status": "failed",
       "progress": 50,
       "results": null,
@@ -187,7 +187,7 @@
           ]
         }
       },
-      "elapsed_seconds": 0.516
+      "elapsed_seconds": 0.511
     }
   ]
 }

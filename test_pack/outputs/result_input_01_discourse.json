@@ -1,14 +1,14 @@
 {
   "file": "input_01_discourse.json",
-  "job_id": "job_55655f9d8e12",
+  "job_id": "job_7280bd92ae22",
   "status": "succeeded",
   "progress": 100,
   "results": {
-    "post_id": "65924c97-6e5b-4b7c-b17e-131d493e5052",
+    "post_id": "f353c914-04e9-49a1-9bd2-966fc1d890f3",
     "platform_post_id": "disc_78234",
     "live_url": "https://discourse.example.com/t/disc_78234",
     "status": "published",
-    "manifest_url": "/api/v1/storage/49798c26_manifest_job_55655f9d8e12.json",
+    "manifest_url": "/api/v1/storage/fe108e90_manifest_job_7280bd92ae22.json",
     "destination_name": "Batch Discourse Destination",
     "tailored_rendition": {
       "title": "What are your thoughts on: Optimizing High-Throughput Video Processing Pipelines with FFmpeg and Go?",

@@ -1,6 +1,6 @@
 {
   "file": "input_07_failure_promo_ban.json",
-  "job_id": "job_6a058d9cc7a3",
+  "job_id": "job_22683cf1ba89",
   "status": "failed",
   "progress": 50,
   "results": null,
@@ -14,5 +14,5 @@
       ]
     }
   },
-  "elapsed_seconds": 0.516
+  "elapsed_seconds": 0.511
 }

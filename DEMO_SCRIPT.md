@@ -139,9 +139,9 @@ This document provides a concise, minute-by-minute walkthrough and verification 
 ---
 
 ### Minute 7:15 – 7:45: Submission Form Workbook & Deliverables Review
-- **Visual:** Briefly show `Assessment4_IncuBrix_Submission.xlsx` in Excel or via script.
+- **Visual:** Briefly show `IncuBrix_Assessment_4_Distribution_Long_Tail_Destination_Network_Submission_Form.xlsx` in Excel or via script.
 - **Narrative:**
-  - *"All submission deliverables are complete: `Assessment4_IncuBrix_Submission.xlsx` is fully populated with all yellow cells and verified evidence links across all sheets."*
+  - *"All submission deliverables are complete: `IncuBrix_Assessment_4_Distribution_Long_Tail_Destination_Network_Submission_Form.xlsx` is fully populated with all yellow cells and verified evidence links across all sheets."*
   - *"The repository includes `README.md`, `REPORT.md`, `SOURCES.md`, `AI_USE.md`, `openapi.yaml`, and the complete test pack outputs."*
   - *"Thank you for your time and consideration."*
 

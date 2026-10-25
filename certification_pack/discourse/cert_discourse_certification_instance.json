@@ -1,22 +1,22 @@
 {
-  "certification_id": "c05f0756-f94d-40b6-a909-cae0ad328d7f",
+  "certification_id": "3680b129-e161-4d18-bc53-58a852c5bcac",
   "destination_name": "Discourse Certification Instance",
   "destination_url": "https://discourse.example.com",
   "connector_key": "discourse",
-  "started_at": "2026-10-24T12:38:44.816771+00:00",
+  "started_at": "2026-10-24T18:47:23.850039+00:00",
   "steps": {
     "validate": {
       "ok": true,
       "violations": []
     },
     "publish": {
-      "platform_post_id": "disc_11535",
-      "live_url": "https://discourse.example.com/t/disc_11535",
+      "platform_post_id": "disc_92081",
+      "live_url": "https://discourse.example.com/t/disc_92081",
       "status": "published"
     },
     "get_status": {
       "status": "active",
-      "live_url": "https://discourse.example.com/t/disc_11535"
+      "live_url": "https://discourse.example.com/t/disc_92081"
     },
     "metrics": {
       "views": 120,
@@ -32,7 +32,7 @@
     }
   },
   "status": "passed",
-  "finished_at": "2026-10-24T12:38:44.823237+00:00",
-  "duration_seconds": 0.006466,
+  "finished_at": "2026-10-24T18:47:23.856360+00:00",
+  "duration_seconds": 0.006321,
   "level_assigned": "L4"
 }
