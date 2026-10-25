@@ -1,16 +1,16 @@
 {
-  "certification_id": "dc0a9c9d-b68c-401d-8d52-a188b8051359",
+  "certification_id": "bfd10349-b016-48b3-bc23-be767caeafb2",
   "destination_name": "Assisted Forum Test",
   "destination_url": "https://reddit.com/r/SaaS",
   "connector_key": "assisted",
-  "started_at": "2026-10-24T18:47:23.100322+00:00",
+  "started_at": "2026-10-25T14:24:44.570841+00:00",
   "steps": {
     "validate": {
       "ok": true,
       "violations": []
     },
     "publish": {
-      "platform_post_id": "assist_86763",
+      "platform_post_id": "assist_8643",
       "live_url": "https://reddit.com/r/SaaS/submit",
       "status": "ready_for_manual_post",
       "assist_pack": {
@@ -25,7 +25,7 @@
     }
   },
   "status": "passed",
-  "finished_at": "2026-10-24T18:47:23.100374+00:00",
-  "duration_seconds": 5.2e-05,
+  "finished_at": "2026-10-25T14:24:44.570906+00:00",
+  "duration_seconds": 6.5e-05,
   "level_assigned": "L1"
 }

@@ -1,0 +1,38 @@
+{
+  "certification_id": "f3f34f1b-c10d-48bf-9d1c-8743f281c8fe",
+  "destination_name": "E2E AI Developers Community 17a672",
+  "destination_url": "https://e2e-forum-17a672.org",
+  "connector_key": "discourse",
+  "started_at": "2026-10-25T14:24:45.362038+00:00",
+  "steps": {
+    "validate": {
+      "ok": true,
+      "violations": []
+    },
+    "publish": {
+      "platform_post_id": "disc_78948",
+      "live_url": "https://discourse.example.com/t/disc_78948",
+      "status": "published"
+    },
+    "get_status": {
+      "status": "active",
+      "live_url": "https://e2e-forum-17a672.org/t/disc_78948"
+    },
+    "metrics": {
+      "views": 120,
+      "likes": 15,
+      "comments": 4,
+      "shares": 0,
+      "saves": 0,
+      "watch_time_s": 0,
+      "clicks": 0
+    },
+    "delete": {
+      "deleted": true
+    }
+  },
+  "status": "passed",
+  "finished_at": "2026-10-25T14:24:45.367401+00:00",
+  "duration_seconds": 0.005363,
+  "level_assigned": "L4"
+}

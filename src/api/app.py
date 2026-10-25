@@ -22,7 +22,7 @@ from fastapi import (
 )
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, Response
+from fastapi.responses import HTMLResponse, JSONResponse, Response
 from pydantic import BaseModel
 
 from src.config import settings
@@ -84,6 +84,18 @@ def on_startup():
                 with open(cat_file, "r", encoding="utf-8") as f:
                     catalogue_importer.import_csv(f.read())
     logger.info("IncuBrix Distribution Service started.")
+
+
+@app.get("/", response_class=HTMLResponse)
+@app.get("/ui", response_class=HTMLResponse)
+async def serve_ui():
+    """Serves the IncuBrix Long-Tail Distribution Command Center Web UI."""
+    from pathlib import Path
+    ui_path = Path(__file__).parent.parent / "static" / "index.html"
+    if ui_path.exists():
+        with open(ui_path, "r", encoding="utf-8") as f:
+            return f.read()
+    return "<h1>IncuBrix PS4 Distribution Service Running</h1>"
 
 
 # --- Request Middleware: Correlation ID & Error Handling ---
@@ -404,7 +416,12 @@ async def execute_publication_job(
                 (datetime.now(timezone.utc).isoformat(), job_id),
             )
         connector = registry.get(dest.connector_key)
-        pub_result = await connector.publish(tailored_rendition, dest, connection, idempotency_key=job_id)
+        try:
+            pub_result = await connector.publish(tailored_rendition, dest, connection, idempotency_key=job_id)
+            registry.record_success(dest.connector_key)
+        except Exception as exc:
+            registry.record_failure(dest.connector_key, getattr(exc, "code", "PUBLISH_FAILED"))
+            raise exc
 
         # Record post in DB
         post_record_id = str(uuid.uuid4())
@@ -691,3 +708,152 @@ async def recommend_destinations(req: RecommendRequest):
 async def trigger_recertification(force_all: bool = Query(False)):
     res = await recertification_scheduler.run_recertification(force_all=force_all)
     return res
+
+
+# --- Stand-Out Quirks & Distinctive Features ---
+
+class DryRunPublishRequest(BaseModel):
+    rendition: Rendition
+    destination_id: str
+    connection: Optional[Connection] = None
+
+
+@app.post("/api/v1/publish/dry-run")
+async def publish_dry_run(req: DryRunPublishRequest):
+    """
+    Shadow Pipeline Mode: Executes full spec validation, rules checking, content tailoring,
+    and brand safety risk assessment without mutating destination state or sending outbound network calls.
+    """
+    start_time = time.time()
+    dest_id = req.destination_id
+
+    # 1. Retrieve destination
+    with get_db() as conn:
+        cur = conn.execute("SELECT * FROM destinations WHERE id = ? OR name = ?", (dest_id, dest_id))
+        row = cur.fetchone()
+        if not row:
+            cur = conn.execute("SELECT * FROM destinations WHERE connector_key = ? LIMIT 1", (dest_id,))
+            row = cur.fetchone()
+        if not row:
+            dest = Destination(
+                id=dest_id,
+                name=dest_id,
+                url=f"https://{dest_id.lower().replace(' ', '')}.example.com",
+                platform_key="discourse",
+                connector_key="discourse",
+            )
+        else:
+            dest = Destination(
+                id=row["id"],
+                name=row["name"],
+                url=row["url"],
+                platform_key=row["platform_key"],
+                surface=row["surface"],
+                category=row["category"],
+                audience_tags=json.loads(row["audience_tags"]) if row["audience_tags"] else [],
+                language=row["language"],
+                geo=row["geo"],
+                est_audience=row["est_audience"],
+                rules_url=row["rules_url"],
+                frequency_cap=row["frequency_cap"],
+                self_promo_allowed=bool(row["self_promo_allowed"]),
+                link_policy=row["link_policy"],
+                disclosure_required=bool(row["disclosure_required"]),
+                automation_allowed=bool(row["automation_allowed"]),
+                connector_key=row["connector_key"],
+                relevance_score=row["relevance_score"],
+                relevance_reason=row["relevance_reason"],
+                level=row["level"],
+                last_certified_at=row["last_certified_at"],
+            )
+
+    # 2. Rules check & Brand safety risk assessment
+    rules_ok = True
+    rule_violations = []
+    try:
+        rules_engine.check_rules(req.rendition, dest)
+    except ConnectorException as ce:
+        rules_ok = False
+        rule_violations = ce.details.get("violations", [ce.message]) if isinstance(ce.details, dict) else [ce.message]
+
+    risk_assessment = rules_engine.calculate_ban_risk_score(req.rendition, dest)
+
+    # 3. Tailoring
+    tailored_rendition = tailoring_engine.tailor(req.rendition, dest)
+
+    elapsed_ms = (time.time() - start_time) * 1000
+
+    return {
+        "dry_run": True,
+        "destination": dest.model_dump(),
+        "rules_check": {
+            "passed": rules_ok,
+            "violations": rule_violations,
+        },
+        "brand_safety_risk": risk_assessment,
+        "tailored_rendition": tailored_rendition.model_dump(),
+        "estimated_pipeline_ms": round(elapsed_ms, 2),
+        "cost_estimate_usd": 0.0001,
+        "circuit_breaker_status": "closed" if not registry.is_circuit_open(dest.connector_key) else "open",
+    }
+
+
+class RiskScoreRequest(BaseModel):
+    rendition: Rendition
+    destination_id: Optional[str] = None
+
+
+@app.post("/api/v1/rules/risk-score")
+async def calculate_risk_score(req: RiskScoreRequest):
+    """Evaluates continuous Brand Safety Ban Risk Score (0-100) and Reputation Safety Grade."""
+    dest = None
+    if req.destination_id:
+        with get_db() as conn:
+            cur = conn.execute("SELECT * FROM destinations WHERE id = ? OR name = ?", (req.destination_id, req.destination_id))
+            row = cur.fetchone()
+            if row:
+                dest = Destination(
+                    id=row["id"],
+                    name=row["name"],
+                    url=row["url"],
+                    platform_key=row["platform_key"],
+                    surface=row["surface"],
+                    category=row["category"],
+                    self_promo_allowed=bool(row["self_promo_allowed"]),
+                    disclosure_required=bool(row["disclosure_required"]),
+                    connector_key=row["connector_key"],
+                )
+    return rules_engine.calculate_ban_risk_score(req.rendition, dest)
+
+
+@app.get("/api/v1/circuit-breakers")
+async def get_circuit_breakers():
+    """Returns runtime circuit breaker health status and failure counts across all connectors."""
+    return registry.get_circuit_breakers()
+
+
+@app.post("/api/v1/circuit-breakers/{connector_key}/reset")
+async def reset_circuit_breaker(connector_key: str):
+    """Manually resets a tripped circuit breaker to closed state."""
+    registry.reset_circuit_breaker(connector_key)
+    return {"connector_key": connector_key, "status": "reset_successful"}
+
+
+@app.post("/api/v1/connectors/{connector_key}/toggle")
+async def toggle_connector(connector_key: str, disabled: bool = Query(...)):
+    """Operational Kill-Switch: Dynamically enables or disables any connector at runtime."""
+    registry.set_disabled(connector_key, disabled)
+    return {"connector_key": connector_key, "disabled": disabled, "status": "updated"}
+
+
+@app.get("/api/v1/benchmark/precision")
+async def run_precision_benchmark():
+    """Executes live Precision@10 evaluation against data/labeled_recommendation_eval.json."""
+    from pathlib import Path
+    eval_file = Path("./data/labeled_recommendation_eval.json")
+    if not eval_file.exists():
+        raise HTTPException(status_code=404, detail="Benchmark dataset not found.")
+    with open(eval_file, "r", encoding="utf-8") as f:
+        eval_data = json.load(f)
+    results = recommendation_engine.evaluate_precision_at_k(eval_data, k=10)
+    return results

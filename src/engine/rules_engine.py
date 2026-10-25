@@ -108,5 +108,87 @@ class RulesEngine:
 
         return {"valid": True, "violations": []}
 
+    def calculate_ban_risk_score(self, rendition: Rendition, destination: Optional[Destination] = None) -> Dict[str, Any]:
+        """
+        Computes a continuous Community Ban Risk Score (0-100) and Reputation Safety Grade.
+        Evaluates promotional language density, uppercase shout ratio, link density, urgency markers,
+        and destination policy constraints.
+        """
+        full_text = f"{rendition.title} {rendition.body}"
+        lower_text = full_text.lower()
+        words = re.findall(r"\b\w+\b", full_text)
+        total_words = max(len(words), 1)
+
+        score = 5.0
+        factors: List[str] = []
+        recommendations: List[str] = []
+
+        # 1. Promotional Keyword Density
+        promo_matches = [kw for kw in self.PROMO_KEYWORDS if kw in lower_text]
+        urgency_keywords = ["urgent", "hurry", "limited time", "act fast", "don't miss", "exclusive offer", "click here"]
+        urgency_matches = [kw for kw in urgency_keywords if kw in lower_text]
+
+        if promo_matches or urgency_matches:
+            count = len(promo_matches) + len(urgency_matches)
+            add = min(35.0, count * 12.0)
+            score += add
+            factors.append(f"Detected {count} high-intensity marketing phrases: {', '.join(promo_matches + urgency_matches)}")
+            recommendations.append("Tone down promotional adjectives to preserve community goodwill.")
+
+        # 2. Link Density
+        link_count = len(re.findall(r"https?://\S+", full_text))
+        if link_count > 3:
+            score += min(25.0, (link_count - 3) * 8.0)
+            factors.append(f"High link count ({link_count} links in {total_words} words)")
+            recommendations.append("Limit outbound links to 1-2 authoritative sources to avoid spam filters.")
+
+        # 3. Uppercase Shout Ratio
+        alpha_chars = [c for c in full_text if c.isalpha()]
+        if alpha_chars:
+            upper_ratio = sum(1 for c in alpha_chars if c.isupper()) / len(alpha_chars)
+            if upper_ratio > 0.20:
+                score += min(20.0, (upper_ratio - 0.20) * 80.0)
+                factors.append(f"Elevated uppercase letter ratio ({round(upper_ratio * 100, 1)}%)")
+                recommendations.append("Avoid ALL-CAPS text in titles and paragraphs; use standard sentence case.")
+
+        # 4. Destination Policy Context
+        if destination:
+            if not destination.self_promo_allowed and (rendition.is_promotional or promo_matches):
+                score += 35.0
+                factors.append(f"Destination '{destination.name}' strictly prohibits self-promotion.")
+                recommendations.append("Remove promotional phrasing; destination policy strictly bans self-promotion.")
+            if destination.disclosure_required and not rendition.has_ai_disclosure:
+                score += 20.0
+                factors.append("Destination mandates explicit AI transparency disclosure.")
+                recommendations.append("Enable AI Disclosure flag and include generative transparency notice.")
+
+        final_score = int(round(max(0.0, min(100.0, score))))
+
+        if final_score <= 15:
+            grade = "A+ (Extremely Safe)"
+            level_color = "emerald"
+        elif final_score <= 35:
+            grade = "A (Safe / High Quality)"
+            level_color = "teal"
+        elif final_score <= 60:
+            grade = "B (Moderate Risk)"
+            level_color = "amber"
+        elif final_score <= 80:
+            grade = "C (Elevated Risk)"
+            level_color = "orange"
+        else:
+            grade = "F (High Risk / Ban Likely)"
+            level_color = "rose"
+
+        return {
+            "risk_score": final_score,
+            "safety_grade": grade,
+            "level_color": level_color,
+            "link_count": link_count,
+            "word_count": total_words,
+            "factors": factors or ["Clean content framing with organic community alignment."],
+            "recommendations": recommendations or ["Content meets organic community standards."],
+        }
+
 
 rules_engine = RulesEngine()
